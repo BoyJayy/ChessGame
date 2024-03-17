@@ -23,12 +23,13 @@ namespace ChessGame
             public string s;
             public Label lbl;
             public Rectangle rect;
+            public PictureBox pic;
         }
         private const int n = 8;
         private const int size = 70;
         private Board[,] chessBoard = new Board[n, n];
         SolidBrush whiteBrush = new SolidBrush(Color.White);
-        SolidBrush blackBrush = new SolidBrush(Color.White);
+        SolidBrush blackBrush = new SolidBrush(Color.Black);
         Pen blackPen = new Pen(Color.Black);
         Graphics g;
         private void fillBoard()
@@ -51,6 +52,8 @@ namespace ChessGame
                 for (int j = 0; j < n; j++)
                 {
                     chessBoard[i, j].rect = new Rectangle(i * size, j * size, size, size);
+                    Brush col = (i + j) % 2 != 0 ? Brushes.Green : Brushes.Azure;
+                    g.FillRectangle(col, chessBoard[i, j].rect);
                     g.DrawRectangle(blackPen, chessBoard[i, j].rect);
                 }
             }

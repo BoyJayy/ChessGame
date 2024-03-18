@@ -1,6 +1,6 @@
 ﻿namespace ChessGame
 {
-    internal class Class1
+    internal class Player
     {
         private class PlayerSide
         {

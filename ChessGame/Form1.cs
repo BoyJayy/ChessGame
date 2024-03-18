@@ -9,7 +9,10 @@ namespace ChessGame
         {
             InitializeComponent();
         }
-
+        class Player
+        {
+            public bool side; //если 1, то белые, иначе черные;
+        }
         private struct Board
         {
             public int data;
@@ -30,6 +33,8 @@ namespace ChessGame
         private SolidBrush lightYellowBrush = new SolidBrush(Color.LightYellow);
         private Pen blackPen = new Pen(Color.Black);
         private Graphics g;
+        private Player blackPlayer; 
+        private Player whitePlayer;
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
@@ -48,36 +53,59 @@ namespace ChessGame
             }
         }
 
-        public Color defCol;
-
+        private Color defCol;
+        private bool isClicked = false;
+        
         private void Form1_MouseDown(object sender, MouseEventArgs e)
         {
-            for (int i = 0; i < n; i++)
+            if (!isClicked)
             {
-                for (int j = 0; j < n; j++)
+                for (int i = 0; i < n; i++)
                 {
-                    if (chessBoard[i, j].flag == false && (e.Y >= chessBoard[i, j].rect.Location.Y + 1) &&
-                    (e.Y <= (chessBoard[i, j].rect.Location.Y + size)) &&
-                    (e.X >= chessBoard[i, j].rect.Location.X + 1) &&
-                    (e.X <= (chessBoard[i, j].rect.Location.X + size)) && chessBoard[i, j].isFugure == true)
+                    for (int j = 0; j < n; j++)
                     {
-                        defCol = chessBoard[i, j].color;
-                        g.FillRectangle(lightYellowBrush, chessBoard[i, j].rect);
-                        g.DrawRectangle(blackPen, chessBoard[i, j].rect);
-                        chessBoard[i, j].color = Color.LightYellow;
-                        chessBoard[i, j].flag = true;
-                        break;
+                        if (chessBoard[i, j].flag == false && (e.Y >= chessBoard[i, j].rect.Location.Y + 1) &&
+                        (e.Y <= (chessBoard[i, j].rect.Location.Y + size)) &&
+                        (e.X >= chessBoard[i, j].rect.Location.X + 1) &&
+                        (e.X <= (chessBoard[i, j].rect.Location.X + size)) && chessBoard[i, j].isFugure == true)
+                        {
+                            defCol = chessBoard[i, j].color;
+                            g.FillRectangle(lightYellowBrush, chessBoard[i, j].rect);
+                            g.DrawRectangle(blackPen, chessBoard[i, j].rect);
+                            chessBoard[i, j].color = Color.LightYellow;
+                            chessBoard[i, j].flag = true;
+                            isClicked = true;
+                            break;
+                        }
+                        if (chessBoard[i, j].flag == true && (e.Y >= chessBoard[i, j].rect.Location.Y + 1) &&
+                        (e.Y <= (chessBoard[i, j].rect.Location.Y + size)) &&
+                        (e.X >= chessBoard[i, j].rect.Location.X + 1) &&
+                        (e.X <= (chessBoard[i, j].rect.Location.X + size)) && chessBoard[i, j].isFugure == true)
+                        {
+                            Brush col = (i + j) % 2 != 0 ? Brushes.DarkOliveGreen : Brushes.Azure;
+                            g.FillRectangle(col, chessBoard[i, j].rect);
+                            g.DrawRectangle(blackPen, chessBoard[i, j].rect);
+                            chessBoard[i, j].flag = false;
+                            isClicked = false;
+                            break;
+                        }
                     }
-                    if (chessBoard[i, j].flag == true && (e.Y >= chessBoard[i, j].rect.Location.Y + 1) &&
-                    (e.Y <= (chessBoard[i, j].rect.Location.Y + size)) &&
-                    (e.X >= chessBoard[i, j].rect.Location.X + 1) &&
-                    (e.X <= (chessBoard[i, j].rect.Location.X + size)) && chessBoard[i, j].isFugure == true)
+                }
+            }
+            else
+            {
+                for (int i = 0; i < n; i++)
+                {
+                    for (int j = 0; j < n; j++)
                     {
-                        Brush col = (i + j) % 2 != 0 ? Brushes.DarkOliveGreen : Brushes.Azure;
-                        g.FillRectangle(col, chessBoard[i, j].rect);
-                        g.DrawRectangle(blackPen, chessBoard[i, j].rect);
-                        chessBoard[i, j].flag = false;
-                        break;
+                        if (chessBoard[i, j].flag == true)
+                        {
+                            Brush col = (i + j) % 2 != 0 ? Brushes.DarkOliveGreen : Brushes.Azure;
+                            g.FillRectangle(col, chessBoard[i, j].rect);
+                            g.DrawRectangle(blackPen, chessBoard[i, j].rect);
+                            chessBoard[i, j].flag = false;
+                            isClicked = false;
+                        }
                     }
                 }
             }

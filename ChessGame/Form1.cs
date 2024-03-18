@@ -9,13 +9,28 @@ namespace ChessGame
         {
             InitializeComponent();
         }
-        class Player
-        {
-            public bool side; //если 1, то белые, иначе черные;
-        }
-        private struct Board
+
+        private class Figure
         {
             public int data;
+            private int posX; private int posY;
+
+            private void setData(int ddata)
+            { data = ddata; }
+
+            private void setPos(int pos_x, int pos_y)
+            { posX = pos_x; posY = pos_y; }
+
+            private Figure(int tdata, int pos_x, int pos_y)
+            {
+                setData(tdata);
+                setPos(pos_x, pos_y);
+            }
+        }
+
+        private struct Board
+        {
+            public int counter;
             public bool flag;
             public bool isFugure;
             public string s;
@@ -23,6 +38,13 @@ namespace ChessGame
             public Rectangle rect;
             public PictureBox pic;
             public Color color;
+            private Figure fig;
+
+            public static Board operator ++(Board r1) //peregruz
+            {
+                r1.counter++;
+                return r1;
+            }
         }
 
         private const int n = 8;
@@ -33,8 +55,7 @@ namespace ChessGame
         private SolidBrush lightYellowBrush = new SolidBrush(Color.LightYellow);
         private Pen blackPen = new Pen(Color.Black);
         private Graphics g;
-        private Player blackPlayer; 
-        private Player whitePlayer;
+        private Bitmap bmp;
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
@@ -55,7 +76,7 @@ namespace ChessGame
 
         private Color defCol;
         private bool isClicked = false;
-        
+
         private void Form1_MouseDown(object sender, MouseEventArgs e)
         {
             if (!isClicked)

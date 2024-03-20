@@ -3,13 +3,21 @@ using System.Windows.Forms;
 
 namespace ChessGame
 {
-    public partial class game : Form
+    public partial class GameTogether : Form
     {
-        public game()
+        public GameTogether()
         {
             InitializeComponent();
         }
+        private class PlayerSide
+        {
+            public bool side; //если 1, то белые, иначе черные;
 
+            private void setSide(bool n)
+            {
+                side = n;
+            }
+        }
         private class Figure
         {
             public int data;
@@ -67,7 +75,7 @@ namespace ChessGame
                     if (j == 0 || j == 1 || j == 6 || j == 7) chessBoard[i, j].isFugure = true;
                     else chessBoard[i, j].isFugure = false;
                     chessBoard[i, j].rect = new Rectangle(i * size + 20 + 10, j * size + 20, size, size);
-                    Brush col = (i + j) % 2 != 0 ? Brushes.DarkOliveGreen : Brushes.Azure;
+                    Brush col = (i + j) % 2 != 0 ? Brushes.DarkOliveGreen : Brushes.Wheat;
                     g.FillRectangle(col, chessBoard[i, j].rect);
                     g.DrawRectangle(blackPen, chessBoard[i, j].rect);
                 }
@@ -103,7 +111,7 @@ namespace ChessGame
                         (e.X >= chessBoard[i, j].rect.Location.X + 1) &&
                         (e.X <= (chessBoard[i, j].rect.Location.X + size)) && chessBoard[i, j].isFugure == true)
                         {
-                            Brush col = (i + j) % 2 != 0 ? Brushes.DarkOliveGreen : Brushes.Azure;
+                            Brush col = (i + j) % 2 != 0 ? Brushes.DarkOliveGreen : Brushes.Wheat;
                             g.FillRectangle(col, chessBoard[i, j].rect);
                             g.DrawRectangle(blackPen, chessBoard[i, j].rect);
                             chessBoard[i, j].flag = false;
@@ -113,19 +121,36 @@ namespace ChessGame
                     }
                 }
             }
+
             else
             {
                 for (int i = 0; i < n; i++)
                 {
                     for (int j = 0; j < n; j++)
                     {
-                        if (chessBoard[i, j].flag == true)
+                        if (chessBoard[i, j].flag == true )
                         {
-                            Brush col = (i + j) % 2 != 0 ? Brushes.DarkOliveGreen : Brushes.Azure;
+                            Brush col = (i + j) % 2 != 0 ? Brushes.DarkOliveGreen : Brushes.Wheat;
                             g.FillRectangle(col, chessBoard[i, j].rect);
                             g.DrawRectangle(blackPen, chessBoard[i, j].rect);
                             chessBoard[i, j].flag = false;
                             isClicked = false;
+                            for (int k = 0; k < n; k++)
+                            {
+                                for (int m = 0; m < n; m++)
+                                {
+                                    if ((e.Y >= chessBoard[k,m].rect.Location.Y + 1) &&
+                                    (e.Y <= (chessBoard[k, m].rect.Location.Y + size)) &&
+                                    (e.X >= chessBoard[k, m].rect.Location.X + 1) &&
+                                    (e.X <= (chessBoard[k, m].rect.Location.X + size)) && chessBoard[k, m].isFugure == false)
+                                    {
+                                        chessBoard[i, j].isFugure = false;
+                                        isClicked = false;
+                                        chessBoard[k, m].isFugure = true;
+                                        break;
+                                    }
+                                }
+                            }
                         }
                     }
                 }

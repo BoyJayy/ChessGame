@@ -16,5 +16,21 @@ namespace ChessGame
         {
             InitializeComponent();
         }
+
+        private void Start_Load(object sender, EventArgs e)
+        {
+                //var f = new Game();
+                //if (f.ShowDialog(this) == DialogResult.OK)
+                //{
+                //    f.Dispose();
+                //}
+                //else Application.Exit();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            GameTogether gmt = new GameTogether();
+            gmt.Show();
+        }
     }
 }

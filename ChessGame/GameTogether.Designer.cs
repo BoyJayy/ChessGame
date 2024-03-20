@@ -1,7 +1,7 @@
 ﻿
 namespace ChessGame
 {
-    partial class game
+    partial class GameTogether
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -207,7 +207,7 @@ namespace ChessGame
             this.H.TabIndex = 15;
             this.H.Text = "h";
             // 
-            // game
+            // GameTogether
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -231,7 +231,7 @@ namespace ChessGame
             this.Controls.Add(this.eight_lbl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "game";
+            this.Name = "GameTogether";
             this.Text = "Form1";
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);

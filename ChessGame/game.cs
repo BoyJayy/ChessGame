@@ -3,9 +3,9 @@ using System.Windows.Forms;
 
 namespace ChessGame
 {
-    public partial class Form1 : Form
+    public partial class game : Form
     {
-        public Form1()
+        public game()
         {
             InitializeComponent();
         }

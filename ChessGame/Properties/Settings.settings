@@ -8,5 +8,11 @@
     <Setting Name="aaa" Type="System.Drawing.Point" Scope="User">
       <Value Profile="(Default)">700, 400</Value>
     </Setting>
+    <Setting Name="aaaa" Type="System.Drawing.Point" Scope="User">
+      <Value Profile="(Default)">1000, 1000</Value>
+    </Setting>
+    <Setting Name="aaa1" Type="System.Drawing.Point" Scope="User">
+      <Value Profile="(Default)">500, 200</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

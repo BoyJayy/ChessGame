@@ -29,6 +29,7 @@ namespace ChessGame
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameTogether));
             this.eight_lbl = new System.Windows.Forms.Label();
             this.seven_lbl = new System.Windows.Forms.Label();
             this.six_lbl = new System.Windows.Forms.Label();
@@ -229,10 +230,13 @@ namespace ChessGame
             this.Controls.Add(this.six_lbl);
             this.Controls.Add(this.seven_lbl);
             this.Controls.Add(this.eight_lbl);
+            this.DataBindings.Add(new System.Windows.Forms.Binding("Location", global::ChessGame.Properties.Settings.Default, "aaa1", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Location = global::ChessGame.Properties.Settings.Default.aaa1;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "GameTogether";
-            this.Text = "Form1";
+            this.Text = "Chess";
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
             this.ResumeLayout(false);

@@ -46,5 +46,29 @@ namespace ChessGame.Properties {
                 this["aaa"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1000, 1000")]
+        public global::System.Drawing.Point aaaa {
+            get {
+                return ((global::System.Drawing.Point)(this["aaaa"]));
+            }
+            set {
+                this["aaaa"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("500, 200")]
+        public global::System.Drawing.Point aaa1 {
+            get {
+                return ((global::System.Drawing.Point)(this["aaa1"]));
+            }
+            set {
+                this["aaa1"] = value;
+            }
+        }
     }
 }

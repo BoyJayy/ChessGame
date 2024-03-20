@@ -5,9 +5,7 @@ namespace ChessGame
 {
     internal static class Program
     {
-        /// <summary>
-        /// Главная точка входа для приложения.
-        /// </summary>
+        public static Start ST;
         [STAThread]
         private static void Main()
         {

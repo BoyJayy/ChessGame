@@ -31,8 +31,8 @@ namespace ChessGame
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Start));
             this.mainlbl = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.blackCheck = new System.Windows.Forms.CheckBox();
+            this.whiteCheck = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -49,25 +49,25 @@ namespace ChessGame
             this.mainlbl.TabIndex = 0;
             this.mainlbl.Text = "Chess game";
             // 
-            // checkBox1
+            // blackCheck
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(72, 121);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(53, 17);
-            this.checkBox1.TabIndex = 1;
-            this.checkBox1.Text = "Black";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.blackCheck.AutoSize = true;
+            this.blackCheck.Location = new System.Drawing.Point(72, 121);
+            this.blackCheck.Name = "blackCheck";
+            this.blackCheck.Size = new System.Drawing.Size(53, 17);
+            this.blackCheck.TabIndex = 1;
+            this.blackCheck.Text = "Black";
+            this.blackCheck.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // whiteCheck
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(72, 144);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(54, 17);
-            this.checkBox2.TabIndex = 2;
-            this.checkBox2.Text = "White";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.whiteCheck.AutoSize = true;
+            this.whiteCheck.Location = new System.Drawing.Point(72, 144);
+            this.whiteCheck.Name = "whiteCheck";
+            this.whiteCheck.Size = new System.Drawing.Size(54, 17);
+            this.whiteCheck.TabIndex = 2;
+            this.whiteCheck.Text = "White";
+            this.whiteCheck.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
@@ -118,8 +118,8 @@ namespace ChessGame
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.checkBox2);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.whiteCheck);
+            this.Controls.Add(this.blackCheck);
             this.Controls.Add(this.mainlbl);
             this.DataBindings.Add(new System.Windows.Forms.Binding("Location", global::ChessGame.Properties.Settings.Default, "aaa", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -138,10 +138,10 @@ namespace ChessGame
         #endregion
 
         private System.Windows.Forms.Label mainlbl;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        public System.Windows.Forms.CheckBox blackCheck;
+        public System.Windows.Forms.CheckBox whiteCheck;
+        public System.Windows.Forms.Button button1;
+        public System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
     }

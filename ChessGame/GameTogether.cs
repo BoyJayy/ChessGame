@@ -8,14 +8,21 @@ namespace ChessGame
         public GameTogether()
         {
             InitializeComponent();
+            getInfoFromStart();
         }
-        private class PlayerSide
+        private class Player
         {
-            public bool side; //если 1, то белые, иначе черные;
-
+            public bool temp; //если 1, то белые, иначе черные;
+            public string side;
+            public Player (bool d)
+            {
+                setSide(d);
+            }
             private void setSide(bool n)
             {
-                side = n;
+                temp = n;
+                if (temp == true) side = "W";
+                else side = "B";
             }
         }
         private class Figure
@@ -64,6 +71,25 @@ namespace ChessGame
         private Pen blackPen = new Pen(Color.Black);
         private Graphics g;
         private Bitmap bmp;
+
+        private void getInfoFromStart()
+        {
+            //if (Program.ST.blackCheck.Checked == true && Program.ST.whiteCheck.Checked == false)
+            //{
+            //    Player first = new Player(true);
+            //    Player second = new Player(false);
+            //}
+            //if (Program.ST.blackCheck.Checked == false && Program.ST.whiteCheck.Checked == true)
+            //{
+            //    Player first = new Player(false);
+            //    Player second = new Player(true);
+            //}
+            //if (Program.ST.blackCheck.Checked == true && Program.ST.whiteCheck.Checked == true)
+            //{
+            //    Player first = new Player(true);
+            //    Player second = new Player(false);
+            //}
+        }
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {

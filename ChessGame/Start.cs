@@ -15,6 +15,7 @@ namespace ChessGame
         public Start()
         {
             InitializeComponent();
+            Program.ST = this;
         }
 
         private void Start_Load(object sender, EventArgs e)
@@ -29,8 +30,9 @@ namespace ChessGame
 
         private void button2_Click(object sender, EventArgs e)
         {
+            this.Hide();
             GameTogether gmt = new GameTogether();
-            gmt.Show();
+            gmt.Show(); gmt.Update();
         }
     }
 }

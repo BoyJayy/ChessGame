@@ -6,6 +6,7 @@ namespace ChessGame
     internal static class Program
     {
         public static Start ST;
+
         [STAThread]
         private static void Main()
         {

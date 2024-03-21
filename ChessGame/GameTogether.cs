@@ -10,14 +10,17 @@ namespace ChessGame
             InitializeComponent();
             getInfoFromStart();
         }
+
         private class Player
         {
             public bool temp; //если 1, то белые, иначе черные;
             public string side;
-            public Player (bool d)
+
+            public Player(bool d)
             {
                 setSide(d);
             }
+
             private void setSide(bool n)
             {
                 temp = n;
@@ -25,10 +28,12 @@ namespace ChessGame
                 else side = "B";
             }
         }
+
         private class Figure
         {
             public int data;
             private int posX; private int posY;
+            public Player player;
 
             private void setData(int ddata)
             { data = ddata; }
@@ -51,9 +56,9 @@ namespace ChessGame
             public string s;
             public Label lbl;
             public Rectangle rect;
-            public PictureBox pic;
             public Color color;
-            private Figure fig;
+            public Figure fig;
+            public PictureBox pic;
 
             public static Board operator ++(Board r1) //peregruz
             {
@@ -71,6 +76,8 @@ namespace ChessGame
         private Pen blackPen = new Pen(Color.Black);
         private Graphics g;
         private Bitmap bmp;
+        private Image chessSprites = new Bitmap(Application.StartupPath + "\\chess.png");
+        private Image kingW_img = new Bitmap(Application.StartupPath + "\\kingW.png");
 
         private void getInfoFromStart()
         {
@@ -104,6 +111,10 @@ namespace ChessGame
                     Brush col = (i + j) % 2 != 0 ? Brushes.DarkOliveGreen : Brushes.Wheat;
                     g.FillRectangle(col, chessBoard[i, j].rect);
                     g.DrawRectangle(blackPen, chessBoard[i, j].rect);
+                    //chessBoard[i, j].pic = new PictureBox();
+                    //chessBoard[i, j].pic.Location = new Point(chessBoard[i, j].rect.X, chessBoard[i, j].rect.Y);
+                    //Controls.Add(chessBoard[i, j].pic);
+                    //chessBoard[i, j].pic.Image = kingW_img;
                 }
             }
         }
@@ -147,14 +158,13 @@ namespace ChessGame
                     }
                 }
             }
-
             else
             {
                 for (int i = 0; i < n; i++)
                 {
                     for (int j = 0; j < n; j++)
                     {
-                        if (chessBoard[i, j].flag == true )
+                        if (chessBoard[i, j].flag == true)
                         {
                             Brush col = (i + j) % 2 != 0 ? Brushes.DarkOliveGreen : Brushes.Wheat;
                             g.FillRectangle(col, chessBoard[i, j].rect);
@@ -165,7 +175,7 @@ namespace ChessGame
                             {
                                 for (int m = 0; m < n; m++)
                                 {
-                                    if ((e.Y >= chessBoard[k,m].rect.Location.Y + 1) &&
+                                    if ((e.Y >= chessBoard[k, m].rect.Location.Y + 1) &&
                                     (e.Y <= (chessBoard[k, m].rect.Location.Y + size)) &&
                                     (e.X >= chessBoard[k, m].rect.Location.X + 1) &&
                                     (e.X <= (chessBoard[k, m].rect.Location.X + size)) && chessBoard[k, m].isFugure == false)

@@ -15,7 +15,7 @@ namespace ChessGame
         {
             public bool temp; //если 1, то белые, иначе черные;
             public string side;
-
+            public bool flag;
             public Player(bool d)
             {
                 setSide(d);
@@ -33,7 +33,7 @@ namespace ChessGame
         {
             public int data;
             private int posX; private int posY;
-            public Player player;
+            private char tag;
 
             private void setData(int ddata)
             { data = ddata; }
@@ -45,6 +45,12 @@ namespace ChessGame
             {
                 setData(tdata);
                 setPos(pos_x, pos_y);
+                if (data == 1) tag = 'p';
+                if (data == 2) tag = 'k';
+                if (data == 3) tag = 'b';
+                if (data == 4) tag = 'r';
+                if (data == 5) tag = 'q';
+                if (data == 6) tag = 'K';
             }
         }
 

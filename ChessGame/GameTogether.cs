@@ -132,7 +132,7 @@ namespace ChessGame
 
         private void Form1_MouseDown(object sender, MouseEventArgs e)
         {
-            if (!isClicked)
+            if (!isClicked) // если не нажато ни разу
             {
                 for (int i = 0; i < n; i++)
                 {
@@ -169,7 +169,7 @@ namespace ChessGame
                     }
                 }
             }
-            else
+            else // есть клик по полю
             {
                 for (int i = 0; i < n; i++)
                 {

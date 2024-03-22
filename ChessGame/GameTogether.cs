@@ -82,8 +82,10 @@ namespace ChessGame
         private Pen blackPen = new Pen(Color.Black);
         private Graphics g;
         private Bitmap bmp;
-        private Image chessSprites = new Bitmap(Application.StartupPath + "\\chess.png");
-        private Image kingW_img = new Bitmap(Application.StartupPath + "\\kingW.png");
+        private static int found = Application.StartupPath.IndexOf("\\bin\\Debug");
+        private static string strCoreData = Application.StartupPath.Substring(0, found);
+        private Image chessSprites = new Bitmap(strCoreData + "\\chess.png");
+        private Image kingW_img = new Bitmap(strCoreData + "\\kingW.png");
 
         private void getInfoFromStart()
         {
@@ -117,10 +119,10 @@ namespace ChessGame
                     Brush col = (i + j) % 2 != 0 ? Brushes.DarkOliveGreen : Brushes.Wheat;
                     g.FillRectangle(col, chessBoard[i, j].rect);
                     g.DrawRectangle(blackPen, chessBoard[i, j].rect);
-                    //chessBoard[i, j].pic = new PictureBox();
-                    //chessBoard[i, j].pic.Location = new Point(chessBoard[i, j].rect.X, chessBoard[i, j].rect.Y);
-                    //Controls.Add(chessBoard[i, j].pic);
-                    //chessBoard[i, j].pic.Image = kingW_img;
+                    chessBoard[i, j].pic = new PictureBox();
+                    chessBoard[i, j].pic.Location = new Point(chessBoard[i, j].rect.X, chessBoard[i, j].rect.Y);
+                    Controls.Add(chessBoard[i, j].pic);
+                    chessBoard[i, j].pic.Image = kingW_img;
                 }
             }
         }
@@ -141,6 +143,9 @@ namespace ChessGame
                         (e.X >= chessBoard[i, j].rect.Location.X + 1) &&
                         (e.X <= (chessBoard[i, j].rect.Location.X + size)) && chessBoard[i, j].isFugure == true)
                         {
+                            string s = Application.StartupPath;
+                            int found = s.IndexOf("\\bin\\Debug");
+                            MessageBox.Show(s.Substring(0, found));
                             defCol = chessBoard[i, j].color;
                             g.FillRectangle(lightYellowBrush, chessBoard[i, j].rect);
                             g.DrawRectangle(blackPen, chessBoard[i, j].rect);

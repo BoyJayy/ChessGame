@@ -114,8 +114,6 @@ namespace ChessGame
         private Image bishopB_img = new Bitmap(strCoreData + "\\pics\\bishopB.png");
         private Image pawnB_img = new Bitmap(strCoreData + "\\pics\\pawnB.png");
 
-        private Figure[] array_ofFigs = new Figure[0];
-
         private void getInfoFromStart()
         {
             //if (Program.ST.blackCheck.Checked == true && Program.ST.whiteCheck.Checked == false)
@@ -147,117 +145,98 @@ namespace ChessGame
                     Brush col = (i + j) % 2 != 0 ? Brushes.DarkOliveGreen : Brushes.Wheat;
                     g.FillRectangle(col, chessBoard[i, j].rect);
                     g.DrawRectangle(blackPen, chessBoard[i, j].rect);
-                    //if else zapolneniye dlya proverki
                     if (i == 0 && j == 7) // WHITE start pos
                     {
                         g.DrawImage(rookW_img, chessBoard[i, j].rect.X + 10, chessBoard[i, j].rect.Y + 12);
-                        System.Array.Resize(ref array_ofFigs, array_ofFigs.Length + 1);
-                        array_ofFigs[array_ofFigs.Length - 1] = new Figure(4, i, j, 'w');
+                        chessBoard[i, j].fig = new Figure(4, i, j, 'w');
                     }
                     if (j == 6)
                     {
                         g.DrawImage(pawnW_img, chessBoard[i, j].rect.X + 15, chessBoard[i, j].rect.Y + 12);
-                        System.Array.Resize(ref array_ofFigs, array_ofFigs.Length + 1);
-                        array_ofFigs[array_ofFigs.Length - 1] = new Figure(1, i, j, 'w');
+                        chessBoard[i, j].fig = new Figure(1, i, j, 'w');
                     }
                     if (i == 1 && j == 7)
                     {
                         g.DrawImage(knightW_img, chessBoard[i, j].rect.X + 8, chessBoard[i, j].rect.Y + 12);
-                        System.Array.Resize(ref array_ofFigs, array_ofFigs.Length + 1);
-                        array_ofFigs[array_ofFigs.Length - 1] = new Figure(2, i, j, 'w');
+                        chessBoard[i, j].fig = new Figure(2, i, j, 'w');
                     }
                     if (i == 2 && j == 7)
                     {
                         g.DrawImage(bishopW_img, chessBoard[i, j].rect.X + 8, chessBoard[i, j].rect.Y + 10);
-                        System.Array.Resize(ref array_ofFigs, array_ofFigs.Length + 1);
-                        array_ofFigs[array_ofFigs.Length - 1] = new Figure(3, i, j, 'w');
+                        chessBoard[i, j].fig = new Figure(3, i, j, 'w');
                     }
                     if (i == 3 && j == 7)
                     {
                         g.DrawImage(queenW_img, chessBoard[i, j].rect.X + 5, chessBoard[i, j].rect.Y + 8);
-                        System.Array.Resize(ref array_ofFigs, array_ofFigs.Length + 1);
-                        array_ofFigs[array_ofFigs.Length - 1] = new Figure(5, i, j, 'w');
+                        chessBoard[i, j].fig = new Figure(5, i, j, 'w');
                     }
                     if (i == 4 && j == 7)
                     {
                         g.DrawImage(kingW_img, chessBoard[i, j].rect.X + 5, chessBoard[i, j].rect.Y + 3);
-                        System.Array.Resize(ref array_ofFigs, array_ofFigs.Length + 1);
-                        array_ofFigs[array_ofFigs.Length - 1] = new Figure(6, i, j, 'w');
+                        chessBoard[i, j].fig = new Figure(6, i, j, 'w');
                     }
                     if (i == 5 && j == 7)
                     {
                         g.DrawImage(bishopW_img, chessBoard[i, j].rect.X + 8, chessBoard[i, j].rect.Y + 10);
-                        System.Array.Resize(ref array_ofFigs, array_ofFigs.Length + 1);
-                        array_ofFigs[array_ofFigs.Length - 1] = new Figure(3, i, j, 'w');
+                        chessBoard[i, j].fig = new Figure(3, i, j, 'w');
                     }
                     if (i == 6 && j == 7)
                     {
                         g.DrawImage(knightW_img, chessBoard[i, j].rect.X + 6, chessBoard[i, j].rect.Y + 10);
-                        System.Array.Resize(ref array_ofFigs, array_ofFigs.Length + 1);
-                        array_ofFigs[array_ofFigs.Length - 1] = new Figure(2, i, j, 'w');
+                        chessBoard[i, j].fig = new Figure(2, i, j, 'w');
                     }
                     if (i == 7 && j == 7)
                     {
                         g.DrawImage(rookW_img, chessBoard[i, j].rect.X + 10, chessBoard[i, j].rect.Y + 12);
-                        System.Array.Resize(ref array_ofFigs, array_ofFigs.Length + 1);
-                        array_ofFigs[array_ofFigs.Length - 1] = new Figure(4, i, j, 'w');
+                        chessBoard[i, j].fig = new Figure(4, i, j, 'w');
                     }
 
 
                     if (i == 0 && j == 0) // BLACK start pos
                     {
                         g.DrawImage(rookB_img, chessBoard[i, j].rect.X + 10, chessBoard[i, j].rect.Y + 12);
-                        System.Array.Resize(ref array_ofFigs, array_ofFigs.Length + 1);
-                        array_ofFigs[array_ofFigs.Length - 1] = new Figure(4, i, j, 'b');
+                        chessBoard[i, j].fig = new Figure(4, i, j, 'b');
                     }
                     if (j == 1)
                     {
                         g.DrawImage(pawnB_img, chessBoard[i, j].rect.X + 15, chessBoard[i, j].rect.Y + 12);
-                        System.Array.Resize(ref array_ofFigs, array_ofFigs.Length + 1);
-                        array_ofFigs[array_ofFigs.Length - 1] = new Figure(1, i, j, 'b');
+                        chessBoard[i, j].fig = new Figure(1, i, j, 'b');
                     }
                     if (i == 1 && j == 0)
                     {
                         g.DrawImage(knightB_img, chessBoard[i, j].rect.X + 8, chessBoard[i, j].rect.Y + 12);
-                        System.Array.Resize(ref array_ofFigs, array_ofFigs.Length + 1);
-                        array_ofFigs[array_ofFigs.Length - 1] = new Figure(2, i, j, 'b');
+                        chessBoard[i, j].fig = new Figure(2, i, j, 'b');
                     }
                     if (i == 2 && j == 0)
                     {
                         g.DrawImage(bishopB_img, chessBoard[i, j].rect.X + 8, chessBoard[i, j].rect.Y + 10);
-                        System.Array.Resize(ref array_ofFigs, array_ofFigs.Length + 1);
-                        array_ofFigs[array_ofFigs.Length - 1] = new Figure(3, i, j, 'b');
+                        chessBoard[i, j].fig = new Figure(3, i, j, 'b');
                     }
                     if (i == 3 && j == 0)
                     {
                         g.DrawImage(queenB_img, chessBoard[i, j].rect.X + 5, chessBoard[i, j].rect.Y + 8);
-                        System.Array.Resize(ref array_ofFigs, array_ofFigs.Length + 1);
-                        array_ofFigs[array_ofFigs.Length - 1] = new Figure(5, i, j, 'b');
+                        chessBoard[i, j].fig = new Figure(5, i, j, 'b');
                     }
                     if (i == 4 && j == 0)
                     {
                         g.DrawImage(kingB_img, chessBoard[i, j].rect.X + 5, chessBoard[i, j].rect.Y + 3);
-                        System.Array.Resize(ref array_ofFigs, array_ofFigs.Length + 1);
-                        array_ofFigs[array_ofFigs.Length - 1] = new Figure(6, i, j, 'b');
+                        chessBoard[i, j].fig = new Figure(6, i, j, 'b');
                     }
                     if (i == 5 && j == 0)
                     {
                         g.DrawImage(bishopB_img, chessBoard[i, j].rect.X + 8, chessBoard[i, j].rect.Y + 10);
-                        System.Array.Resize(ref array_ofFigs, array_ofFigs.Length + 1);
-                        array_ofFigs[array_ofFigs.Length - 1] = new Figure(3, i, j, 'b');
+                        chessBoard[i, j].fig = new Figure(3, i, j, 'b');
                     }
 
                     if (i == 6 && j == 0)
                     {
                         g.DrawImage(knightB_img, chessBoard[i, j].rect.X + 6, chessBoard[i, j].rect.Y + 10);
-                        System.Array.Resize(ref array_ofFigs, array_ofFigs.Length + 1);
-                        array_ofFigs[array_ofFigs.Length - 1] = new Figure(2, i, j, 'b');
+                        chessBoard[i, j].fig = new Figure(2, i, j, 'b');
                     }
                     if (i == 7 && j == 0)
                     {
                         g.DrawImage(rookB_img, chessBoard[i, j].rect.X + 10, chessBoard[i, j].rect.Y + 12);
-                        System.Array.Resize(ref array_ofFigs, array_ofFigs.Length + 1);
-                        array_ofFigs[array_ofFigs.Length - 1] = new Figure(4, i, j, 'b');
+                        chessBoard[i, j].fig = new Figure(4, i, j, 'b');
                     }
                     //if (chessBoard[i, j].isFugure == true)
                     //{

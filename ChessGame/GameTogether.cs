@@ -124,6 +124,8 @@ namespace ChessGame
         private Image bishopB_img = new Bitmap(strCoreData + "\\pics\\bishopB.png");
         private Image pawnB_img = new Bitmap(strCoreData + "\\pics\\pawnB.png");
 
+        private System.Media.SoundPlayer player = new System.Media.SoundPlayer();
+
         private void getInfoFromStart()
         {
             //if (Program.ST.blackCheck.Checked == true && Program.ST.whiteCheck.Checked == false)
@@ -260,7 +262,7 @@ namespace ChessGame
 
         private Color defCol;
         private bool isClicked = false;
-
+        private Graphics f;
         private void Form1_MouseDown(object sender, MouseEventArgs e)
         {
             g = Application.OpenForms[0].CreateGraphics();
@@ -483,36 +485,48 @@ namespace ChessGame
                                             g.DrawImage(pawnB_img, chessBoard[k, m].rect.X + 15,chessBoard[k, m].rect.Y + 12);
                                             chessBoard[k, m].fig = new Figure(1, i, j, 'b');
                                             chessBoard[i, j].fig.resetAll();
+                                            player.SoundLocation = @strCoreData + "\\sounds\\move.wav";
+                                            player.Play();
                                         }
                                         if (chessBoard[i, j].fig.data == 2 && chessBoard[i, j].fig.col == 'b')
                                         {
                                             g.DrawImage(knightB_img, chessBoard[k, m].rect.X + 7, chessBoard[k, m].rect.Y + 10);
                                             chessBoard[k, m].fig = new Figure(2, i, j, 'b');
                                             chessBoard[i, j].fig.resetAll();
+                                            player.SoundLocation = @strCoreData + "\\sounds\\move.wav";
+                                            player.Play();
                                         }
                                         if (chessBoard[i, j].fig.data == 3 && chessBoard[i, j].fig.col == 'b')
                                         {
                                             g.DrawImage(bishopB_img, chessBoard[k, m].rect.X + 8, chessBoard[k, m].rect.Y + 8);
                                             chessBoard[k, m].fig = new Figure(3, i, j, 'b');
                                             chessBoard[i, j].fig.resetAll();
+                                            player.SoundLocation = @strCoreData + "\\sounds\\move.wav";
+                                            player.Play();
                                         }
                                         if (chessBoard[i, j].fig.data == 4 && chessBoard[i, j].fig.col == 'b')
                                         {
                                             g.DrawImage(rookB_img, chessBoard[k, m].rect.X + 10, chessBoard[k, m].rect.Y + 12);
                                             chessBoard[k, m].fig = new Figure(4, i, j, 'b');
                                             chessBoard[i, j].fig.resetAll();
+                                            player.SoundLocation = @strCoreData + "\\sounds\\move.wav";
+                                            player.Play();
                                         }
                                         if (chessBoard[i, j].fig.data == 5 && chessBoard[i, j].fig.col == 'b')
                                         {
                                             g.DrawImage(queenB_img, chessBoard[k, m].rect.X + 5, chessBoard[k, m].rect.Y + 8);
                                             chessBoard[k, m].fig = new Figure(5, i, j, 'b');
                                             chessBoard[i, j].fig.resetAll();
+                                            player.SoundLocation = @strCoreData + "\\sounds\\move.wav";
+                                            player.Play();
                                         }
                                         if (chessBoard[i, j].fig.data == 6 && chessBoard[i, j].fig.col == 'b')
                                         {
                                             g.DrawImage(kingB_img, chessBoard[k, m].rect.X + 5, chessBoard[k, m].rect.Y + 4);
                                             chessBoard[k, m].fig = new Figure(6, i, j, 'b');
                                             chessBoard[i, j].fig.resetAll();
+                                            player.SoundLocation = @strCoreData + "\\sounds\\move.wav";
+                                            player.Play();
                                         }
 
                                         if (chessBoard[i, j].fig.data == 1 && chessBoard[i, j].fig.col == 'w') // WHITE
@@ -520,36 +534,48 @@ namespace ChessGame
                                             g.DrawImage(pawnW_img, chessBoard[k, m].rect.X + 15, chessBoard[k, m].rect.Y + 12);
                                             chessBoard[k, m].fig = new Figure(1, i, j, 'w');
                                             chessBoard[i, j].fig.resetAll();
+                                            player.SoundLocation = @strCoreData + "\\sounds\\move.wav";
+                                            player.Play();
                                         }
                                         if (chessBoard[i, j].fig.data == 2 && chessBoard[i, j].fig.col == 'w')
                                         {
                                             g.DrawImage(knightW_img, chessBoard[k, m].rect.X + 8, chessBoard[k, m].rect.Y + 12);
                                             chessBoard[k, m].fig = new Figure(2, i, j, 'w');
                                             chessBoard[i, j].fig.resetAll();
+                                            player.SoundLocation = @strCoreData + "\\sounds\\move.wav";
+                                            player.Play();
                                         }
                                         if (chessBoard[i, j].fig.data == 3 && chessBoard[i, j].fig.col == 'w')
                                         {
                                             g.DrawImage(bishopW_img, chessBoard[k, m].rect.X + 8, chessBoard[k, m].rect.Y + 8);
                                             chessBoard[k, m].fig = new Figure(3, i, j, 'w');
                                             chessBoard[i, j].fig.resetAll();
+                                            player.SoundLocation = @strCoreData + "\\sounds\\move.wav";
+                                            player.Play();
                                         }
                                         if (chessBoard[i, j].fig.data == 4 && chessBoard[i, j].fig.col == 'w')
                                         {
                                             g.DrawImage(rookW_img, chessBoard[k, m].rect.X + 10, chessBoard[k, m].rect.Y + 12);
                                             chessBoard[k, m].fig = new Figure(4, i, j, 'w');
                                             chessBoard[i, j].fig.resetAll();
+                                            player.SoundLocation = @strCoreData + "\\sounds\\move.wav";
+                                            player.Play();
                                         }
                                         if (chessBoard[i, j].fig.data == 5 && chessBoard[i, j].fig.col == 'w')
                                         {
                                             g.DrawImage(queenW_img, chessBoard[k, m].rect.X + 5, chessBoard[k, m].rect.Y + 8);
                                             chessBoard[k, m].fig = new Figure(5, i, j, 'w');
                                             chessBoard[i, j].fig.resetAll();
+                                            player.SoundLocation = @strCoreData + "\\sounds\\move.wav";
+                                            player.Play();
                                         }
                                         if (chessBoard[i, j].fig.data == 6 && chessBoard[i, j].fig.col == 'w')
                                         {
                                             g.DrawImage(kingW_img, chessBoard[k, m].rect.X + 5, chessBoard[k, m].rect.Y + 4);
                                             chessBoard[k, m].fig = new Figure(6, i, j, 'w');
                                             chessBoard[i, j].fig.resetAll();
+                                            player.SoundLocation = @strCoreData + "\\sounds\\move.wav";
+                                            player.Play();
                                         }
                                         break;
                                     }

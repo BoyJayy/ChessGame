@@ -34,6 +34,12 @@ namespace ChessGame
             public int data;
             private int posX; private int posY;
             private char tag;
+            private Image pic;
+            private char col;
+            private void setcol(char c)
+            {
+                col = c;
+            }
 
             private void setData(int ddata)
             { data = ddata; }
@@ -41,10 +47,15 @@ namespace ChessGame
             private void setPos(int pos_x, int pos_y)
             { posX = pos_x; posY = pos_y; }
 
-            private Figure(int tdata, int pos_x, int pos_y)
+            private void setPic(Image img)
+            {
+                pic = img;
+            }
+            public Figure(int tdata, int pos_x, int pos_y, char c)
             {
                 setData(tdata);
                 setPos(pos_x, pos_y);
+                setcol(c);
                 if (data == 1) tag = 'p';
                 if (data == 2) tag = 'k';
                 if (data == 3) tag = 'b';
@@ -64,7 +75,6 @@ namespace ChessGame
             public Rectangle rect;
             public Color color;
             public Figure fig;
-            public PictureBox pic;
 
             public static Board operator ++(Board r1) //peregruz
             {
@@ -75,17 +85,41 @@ namespace ChessGame
 
         private const int n = 8;
         private const int size = 70;
+
         private Board[,] chessBoard = new Board[n, n];
+
         private SolidBrush whiteBrush = new SolidBrush(Color.White);
         private SolidBrush blackBrush = new SolidBrush(Color.Black);
         private SolidBrush lightYellowBrush = new SolidBrush(Color.LightYellow);
         private Pen blackPen = new Pen(Color.Black);
+
         private Graphics g;
         private Bitmap bmp;
+
         private static int found = Application.StartupPath.IndexOf("\\bin\\Debug");
         private static string strCoreData = Application.StartupPath.Substring(0, found);
-        private Image chessSprites = new Bitmap(strCoreData + "\\chess.png");
-        private Image kingW_img = new Bitmap(strCoreData + "\\kingW.png");
+
+        private Image chessSprites = new Bitmap(strCoreData + "\\pics\\chess.png");
+        private Image kingW_img = new Bitmap(strCoreData + "\\pics\\kingW.png");
+        private Image queenW_img = new Bitmap(strCoreData + "\\pics\\queenW.png");
+        private Image rookW_img = new Bitmap(strCoreData + "\\pics\\rookW.png");
+        private Image knightW_img = new Bitmap(strCoreData + "\\pics\\knightW.png");
+        private Image bishopW_img = new Bitmap(strCoreData + "\\pics\\bishopW.png");
+        private Image pawnW_img = new Bitmap(strCoreData + "\\pics\\pawnW.png");
+
+        private Image kingB_img = new Bitmap(strCoreData + "\\pics\\kingB.png");
+        private Image queenB_img = new Bitmap(strCoreData + "\\pics\\queenB.png");
+        private Image rookB_img = new Bitmap(strCoreData + "\\pics\\rookB.png");
+        private Image knightB_img = new Bitmap(strCoreData + "\\pics\\knightB.png");
+        private Image bishopB_img = new Bitmap(strCoreData + "\\pics\\bishopB.png");
+        private Image pawnB_img = new Bitmap(strCoreData + "\\pics\\pawnB.png");
+
+        Figure[] pawn = new Figure[16];
+        Figure[] knight = new Figure[4];
+        Figure[] bishop = new Figure[4];
+        Figure[] rook = new Figure[4];
+        Figure[] queen = new Figure[2];
+        Figure[] king = new Figure[2];
 
         private void getInfoFromStart()
         {
@@ -119,10 +153,89 @@ namespace ChessGame
                     Brush col = (i + j) % 2 != 0 ? Brushes.DarkOliveGreen : Brushes.Wheat;
                     g.FillRectangle(col, chessBoard[i, j].rect);
                     g.DrawRectangle(blackPen, chessBoard[i, j].rect);
-                    chessBoard[i, j].pic = new PictureBox();
-                    chessBoard[i, j].pic.Location = new Point(chessBoard[i, j].rect.X, chessBoard[i, j].rect.Y);
-                    Controls.Add(chessBoard[i, j].pic);
-                    chessBoard[i, j].pic.Image = kingW_img;
+                    //if else zapolneniye dlya proverki
+                    if (i == 0 && j == 7)
+                    {
+                        g.DrawImage(rookW_img, chessBoard[i, j].rect.X + 10, chessBoard[i, j].rect.Y + 12);
+                    }
+                    if (j == 6)
+                    {
+                        g.DrawImage(pawnW_img, chessBoard[i, j].rect.X + 15, chessBoard[i, j].rect.Y + 12);
+                    }
+                    if (i == 1 && j == 7)
+                    {
+                        g.DrawImage(knightW_img, chessBoard[i, j].rect.X + 8, chessBoard[i, j].rect.Y + 12);
+                    }
+                    if (i == 2 && j == 7)
+                    {
+                        g.DrawImage(bishopW_img, chessBoard[i, j].rect.X + 8, chessBoard[i, j].rect.Y + 10);
+                    }
+                    if (i == 3 && j == 7)
+                    {
+                        g.DrawImage(queenW_img, chessBoard[i, j].rect.X + 5, chessBoard[i, j].rect.Y + 8);
+                    }
+                    if (i == 4 && j == 7)
+                    {
+                        g.DrawImage(kingW_img, chessBoard[i, j].rect.X + 5, chessBoard[i, j].rect.Y + 3);
+                    }
+                    if (i == 5 && j == 7)
+                    {
+                        g.DrawImage(bishopW_img, chessBoard[i, j].rect.X + 8, chessBoard[i, j].rect.Y + 10);
+                    }
+
+                    if (i == 6 && j == 7)
+                    {
+                        g.DrawImage(knightW_img, chessBoard[i, j].rect.X + 8, chessBoard[i, j].rect.Y + 12);
+                    }
+                    if (i == 7 && j == 7)
+                    {
+                        g.DrawImage(rookW_img, chessBoard[i, j].rect.X + 10, chessBoard[i, j].rect.Y + 12);
+                    }
+
+                    if (i == 0 && j == 0)
+                    {
+                        g.DrawImage(rookB_img, chessBoard[i, j].rect.X + 10, chessBoard[i, j].rect.Y + 12);
+                    }
+                    if (j == 1)
+                    {
+                        g.DrawImage(pawnB_img, chessBoard[i, j].rect.X + 15, chessBoard[i, j].rect.Y + 12);
+                    }
+                    if (i == 1 && j == 0)
+                    {
+                        g.DrawImage(knightB_img, chessBoard[i, j].rect.X + 8, chessBoard[i, j].rect.Y + 12);
+                    }
+                    if (i == 2 && j == 0)
+                    {
+                        g.DrawImage(bishopB_img, chessBoard[i, j].rect.X + 8, chessBoard[i, j].rect.Y + 10);
+                    }
+                    if (i == 3 && j == 0)
+                    {
+                        g.DrawImage(queenB_img, chessBoard[i, j].rect.X + 5, chessBoard[i, j].rect.Y + 8);
+                    }
+                    if (i == 4 && j == 0)
+                    {
+                        g.DrawImage(kingB_img, chessBoard[i, j].rect.X + 5, chessBoard[i, j].rect.Y + 3);
+                    }
+                    if (i == 5 && j == 0)
+                    {
+                        g.DrawImage(bishopB_img, chessBoard[i, j].rect.X + 8, chessBoard[i, j].rect.Y + 10);
+                    }
+
+                    if (i == 6 && j == 0)
+                    {
+                        g.DrawImage(knightB_img, chessBoard[i, j].rect.X + 8, chessBoard[i, j].rect.Y + 12);
+                    }
+                    if (i == 7 && j == 0)
+                    {
+                        g.DrawImage(rookB_img, chessBoard[i, j].rect.X + 10, chessBoard[i, j].rect.Y + 12);
+                    }
+                    //if (chessBoard[i, j].isFugure == true)
+                    //{
+                    //    if (j == 1)
+                    //    {
+                    //        pawn[i] = new Figure(1, i, j, 'b');
+                    //    }
+                    //}
                 }
             }
         }
@@ -132,6 +245,7 @@ namespace ChessGame
 
         private void Form1_MouseDown(object sender, MouseEventArgs e)
         {
+            g = Application.OpenForms[0].CreateGraphics();
             if (!isClicked) // если не нажато ни разу
             {
                 for (int i = 0; i < n; i++)
@@ -143,15 +257,14 @@ namespace ChessGame
                         (e.X >= chessBoard[i, j].rect.Location.X + 1) &&
                         (e.X <= (chessBoard[i, j].rect.Location.X + size)) && chessBoard[i, j].isFugure == true)
                         {
-                            string s = Application.StartupPath;
-                            int found = s.IndexOf("\\bin\\Debug");
-                            MessageBox.Show(s.Substring(0, found));
+
                             defCol = chessBoard[i, j].color;
                             g.FillRectangle(lightYellowBrush, chessBoard[i, j].rect);
                             g.DrawRectangle(blackPen, chessBoard[i, j].rect);
                             chessBoard[i, j].color = Color.LightYellow;
                             chessBoard[i, j].flag = true;
                             isClicked = true;
+
                             break;
                         }
                         if (chessBoard[i, j].flag == true && (e.Y >= chessBoard[i, j].rect.Location.Y + 1) &&

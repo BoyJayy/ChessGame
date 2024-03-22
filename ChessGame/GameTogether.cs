@@ -51,6 +51,16 @@ namespace ChessGame
             {
                 pic = img;
             }
+
+            public void resetAll()
+            {
+                data = -1;
+                posX = -1;
+                posY = -1;
+                tag = '0';
+                pic = null;
+                col = '0';
+            }
             public Figure(int tdata, int pos_x, int pos_y, char c)
             {
                 setData(tdata);
@@ -272,7 +282,7 @@ namespace ChessGame
                             chessBoard[i, j].color = Color.LightYellow;
                             chessBoard[i, j].flag = true;
                             isClicked = true;
-                            if (chessBoard[i, j].fig.data == 1 && chessBoard[i, j].fig.col == 'b') // WHITE
+                            if (chessBoard[i, j].fig.data == 1 && chessBoard[i, j].fig.col == 'b') // BLACk
                             {
                                 g.DrawImage(pawnB_img, chessBoard[i, j].rect.X + 15, chessBoard[i, j].rect.Y + 12);
                             }
@@ -296,6 +306,31 @@ namespace ChessGame
                             {
                                 g.DrawImage(kingB_img, chessBoard[i, j].rect.X + 5, chessBoard[i, j].rect.Y + 4);
                             }
+
+                            if (chessBoard[i, j].fig.data == 1 && chessBoard[i, j].fig.col == 'w') // WHITE
+                            {
+                                g.DrawImage(pawnW_img, chessBoard[i, j].rect.X + 15, chessBoard[i, j].rect.Y + 12);
+                            }
+                            if (chessBoard[i, j].fig.data == 2 && chessBoard[i, j].fig.col == 'w')
+                            {
+                                g.DrawImage(knightW_img, chessBoard[i, j].rect.X + 8, chessBoard[i, j].rect.Y + 12);
+                            }
+                            if (chessBoard[i, j].fig.data == 3 && chessBoard[i, j].fig.col == 'w')
+                            {
+                                g.DrawImage(bishopW_img, chessBoard[i, j].rect.X + 8, chessBoard[i, j].rect.Y + 8);
+                            }
+                            if (chessBoard[i, j].fig.data == 4 && chessBoard[i, j].fig.col == 'w')
+                            {
+                                g.DrawImage(rookW_img, chessBoard[i, j].rect.X + 10, chessBoard[i, j].rect.Y + 12);
+                            }
+                            if (chessBoard[i, j].fig.data == 5 && chessBoard[i, j].fig.col == 'w')
+                            {
+                                g.DrawImage(queenW_img, chessBoard[i, j].rect.X + 5, chessBoard[i, j].rect.Y + 8);
+                            }
+                            if (chessBoard[i, j].fig.data == 6 && chessBoard[i, j].fig.col == 'w')
+                            {
+                                g.DrawImage(kingW_img, chessBoard[i, j].rect.X + 5, chessBoard[i, j].rect.Y + 4);
+                            }
                             break;
                         }
                         if (chessBoard[i, j].flag == true && (e.Y >= chessBoard[i, j].rect.Location.Y + 1) &&
@@ -308,7 +343,7 @@ namespace ChessGame
                             g.DrawRectangle(blackPen, chessBoard[i, j].rect);
                             chessBoard[i, j].flag = false;
                             isClicked = false;
-                            if (chessBoard[i, j].fig.data == 1 && chessBoard[i, j].fig.col == 'b') // WHITE
+                            if (chessBoard[i, j].fig.data == 1 && chessBoard[i, j].fig.col == 'b') // BLACK
                             {
                                 g.DrawImage(pawnB_img, chessBoard[i, j].rect.X + 15, chessBoard[i, j].rect.Y + 12);
                             }
@@ -331,6 +366,31 @@ namespace ChessGame
                             if (chessBoard[i, j].fig.data == 6 && chessBoard[i, j].fig.col == 'b')
                             {
                                 g.DrawImage(kingB_img, chessBoard[i, j].rect.X + 10, chessBoard[i, j].rect.Y + 12);
+                            }
+
+                            if (chessBoard[i, j].fig.data == 1 && chessBoard[i, j].fig.col == 'w') // WHITE
+                            {
+                                g.DrawImage(pawnW_img, chessBoard[i, j].rect.X + 15, chessBoard[i, j].rect.Y + 12);
+                            }
+                            if (chessBoard[i, j].fig.data == 2 && chessBoard[i, j].fig.col == 'w')
+                            {
+                                g.DrawImage(knightW_img, chessBoard[i, j].rect.X + 8, chessBoard[i, j].rect.Y + 12);
+                            }
+                            if (chessBoard[i, j].fig.data == 3 && chessBoard[i, j].fig.col == 'w')
+                            {
+                                g.DrawImage(bishopW_img, chessBoard[i, j].rect.X + 8, chessBoard[i, j].rect.Y + 8);
+                            }
+                            if (chessBoard[i, j].fig.data == 4 && chessBoard[i, j].fig.col == 'w')
+                            {
+                                g.DrawImage(rookW_img, chessBoard[i, j].rect.X + 10, chessBoard[i, j].rect.Y + 12);
+                            }
+                            if (chessBoard[i, j].fig.data == 5 && chessBoard[i, j].fig.col == 'w')
+                            {
+                                g.DrawImage(queenW_img, chessBoard[i, j].rect.X + 5, chessBoard[i, j].rect.Y + 8);
+                            }
+                            if (chessBoard[i, j].fig.data == 6 && chessBoard[i, j].fig.col == 'w')
+                            {
+                                g.DrawImage(kingW_img, chessBoard[i, j].rect.X + 5, chessBoard[i, j].rect.Y + 4);
                             }
                             break;
                         }
@@ -357,7 +417,7 @@ namespace ChessGame
                             g.DrawRectangle(blackPen, chessBoard[i, j].rect);
                             chessBoard[i, j].flag = false;
                             isClicked = false;
-                            if (chessBoard[i, j].fig.data == 1 && chessBoard[i, j].fig.col == 'b') // WHITE
+                            if (chessBoard[i, j].fig.data == 1 && chessBoard[i, j].fig.col == 'b') // BLACK
                             {
                                 g.DrawImage(pawnB_img, chessBoard[i, j].rect.X + 15, chessBoard[i, j].rect.Y + 12);
                             }
@@ -381,6 +441,31 @@ namespace ChessGame
                             {
                                 g.DrawImage(kingB_img, chessBoard[i, j].rect.X + 10, chessBoard[i, j].rect.Y + 12);
                             }
+
+                            if (chessBoard[i, j].fig.data == 1 && chessBoard[i, j].fig.col == 'w') // WHITE
+                            {
+                                g.DrawImage(pawnW_img, chessBoard[i, j].rect.X + 15, chessBoard[i, j].rect.Y + 12);
+                            }
+                            if (chessBoard[i, j].fig.data == 2 && chessBoard[i, j].fig.col == 'w')
+                            {
+                                g.DrawImage(knightW_img, chessBoard[i, j].rect.X + 8, chessBoard[i, j].rect.Y + 12);
+                            }
+                            if (chessBoard[i, j].fig.data == 3 && chessBoard[i, j].fig.col == 'w')
+                            {
+                                g.DrawImage(bishopW_img, chessBoard[i, j].rect.X + 8, chessBoard[i, j].rect.Y + 8);
+                            }
+                            if (chessBoard[i, j].fig.data == 4 && chessBoard[i, j].fig.col == 'w')
+                            {
+                                g.DrawImage(rookW_img, chessBoard[i, j].rect.X + 10, chessBoard[i, j].rect.Y + 12);
+                            }
+                            if (chessBoard[i, j].fig.data == 5 && chessBoard[i, j].fig.col == 'w')
+                            {
+                                g.DrawImage(queenW_img, chessBoard[i, j].rect.X + 5, chessBoard[i, j].rect.Y + 8);
+                            }
+                            if (chessBoard[i, j].fig.data == 6 && chessBoard[i, j].fig.col == 'w')
+                            {
+                                g.DrawImage(kingW_img, chessBoard[i, j].rect.X + 5, chessBoard[i, j].rect.Y + 4);
+                            }
                             for (int k = 0; k < n; k++)
                             {
                                 for (int m = 0; m < n; m++)
@@ -396,16 +481,75 @@ namespace ChessGame
                                         if (chessBoard[i, j].fig.data == 1 && chessBoard[i, j].fig.col == 'b')
                                         {
                                             g.DrawImage(pawnB_img, chessBoard[k, m].rect.X + 15,chessBoard[k, m].rect.Y + 12);
-                                            chessBoard[k, m].fig = chessBoard[i, j].fig;
-                                            chessBoard[i, j].fig.data
+                                            chessBoard[k, m].fig = new Figure(1, i, j, 'b');
+                                            chessBoard[i, j].fig.resetAll();
                                         }
                                         if (chessBoard[i, j].fig.data == 2 && chessBoard[i, j].fig.col == 'b')
                                         {
                                             g.DrawImage(knightB_img, chessBoard[k, m].rect.X + 7, chessBoard[k, m].rect.Y + 10);
+                                            chessBoard[k, m].fig = new Figure(2, i, j, 'b');
+                                            chessBoard[i, j].fig.resetAll();
                                         }
                                         if (chessBoard[i, j].fig.data == 3 && chessBoard[i, j].fig.col == 'b')
                                         {
                                             g.DrawImage(bishopB_img, chessBoard[k, m].rect.X + 8, chessBoard[k, m].rect.Y + 8);
+                                            chessBoard[k, m].fig = new Figure(3, i, j, 'b');
+                                            chessBoard[i, j].fig.resetAll();
+                                        }
+                                        if (chessBoard[i, j].fig.data == 4 && chessBoard[i, j].fig.col == 'b')
+                                        {
+                                            g.DrawImage(rookB_img, chessBoard[k, m].rect.X + 10, chessBoard[k, m].rect.Y + 12);
+                                            chessBoard[k, m].fig = new Figure(4, i, j, 'b');
+                                            chessBoard[i, j].fig.resetAll();
+                                        }
+                                        if (chessBoard[i, j].fig.data == 5 && chessBoard[i, j].fig.col == 'b')
+                                        {
+                                            g.DrawImage(queenB_img, chessBoard[k, m].rect.X + 10, chessBoard[k, m].rect.Y + 12);
+                                            chessBoard[k, m].fig = new Figure(5, i, j, 'b');
+                                            chessBoard[i, j].fig.resetAll();
+                                        }
+                                        if (chessBoard[i, j].fig.data == 6 && chessBoard[i, j].fig.col == 'b')
+                                        {
+                                            g.DrawImage(kingB_img, chessBoard[k, m].rect.X + 10, chessBoard[k, m].rect.Y + 12);
+                                            chessBoard[k, m].fig = new Figure(6, i, j, 'b');
+                                            chessBoard[i, j].fig.resetAll();
+                                        }
+
+                                        if (chessBoard[i, j].fig.data == 1 && chessBoard[i, j].fig.col == 'w') // WHITE
+                                        {
+                                            g.DrawImage(pawnW_img, chessBoard[k, m].rect.X + 15, chessBoard[k, m].rect.Y + 12);
+                                            chessBoard[k, m].fig = new Figure(1, i, j, 'w');
+                                            chessBoard[i, j].fig.resetAll();
+                                        }
+                                        if (chessBoard[i, j].fig.data == 2 && chessBoard[i, j].fig.col == 'w')
+                                        {
+                                            g.DrawImage(knightW_img, chessBoard[k, m].rect.X + 8, chessBoard[k, m].rect.Y + 12);
+                                            chessBoard[k, m].fig = new Figure(2, i, j, 'w');
+                                            chessBoard[i, j].fig.resetAll();
+                                        }
+                                        if (chessBoard[i, j].fig.data == 3 && chessBoard[i, j].fig.col == 'w')
+                                        {
+                                            g.DrawImage(bishopW_img, chessBoard[k, m].rect.X + 8, chessBoard[k, m].rect.Y + 8);
+                                            chessBoard[k, m].fig = new Figure(3, i, j, 'w');
+                                            chessBoard[i, j].fig.resetAll();
+                                        }
+                                        if (chessBoard[i, j].fig.data == 4 && chessBoard[i, j].fig.col == 'w')
+                                        {
+                                            g.DrawImage(rookW_img, chessBoard[k, m].rect.X + 10, chessBoard[k, m].rect.Y + 12);
+                                            chessBoard[k, m].fig = new Figure(4, i, j, 'w');
+                                            chessBoard[i, j].fig.resetAll();
+                                        }
+                                        if (chessBoard[i, j].fig.data == 5 && chessBoard[i, j].fig.col == 'w')
+                                        {
+                                            g.DrawImage(queenW_img, chessBoard[k, m].rect.X + 5, chessBoard[k, m].rect.Y + 8);
+                                            chessBoard[k, m].fig = new Figure(5, i, j, 'w');
+                                            chessBoard[i, j].fig.resetAll();
+                                        }
+                                        if (chessBoard[i, j].fig.data == 6 && chessBoard[i, j].fig.col == 'w')
+                                        {
+                                            g.DrawImage(kingW_img, chessBoard[k, m].rect.X + 5, chessBoard[k, m].rect.Y + 4);
+                                            chessBoard[k, m].fig = new Figure(6, i, j, 'w');
+                                            chessBoard[i, j].fig.resetAll();
                                         }
                                         break;
                                     }

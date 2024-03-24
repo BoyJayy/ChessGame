@@ -127,6 +127,8 @@ namespace ChessGame
 
         private System.Media.SoundPlayer player = new System.Media.SoundPlayer();
 
+        //private static Player Main = new Player(Program.ST.whiteCheck.Checked);
+
         private void getInfoFromStart()
         {
             //if (Program.ST.blackCheck.Checked == true && Program.ST.whiteCheck.Checked == false)

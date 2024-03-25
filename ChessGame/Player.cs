@@ -1,15 +1,20 @@
 ﻿namespace ChessGame
 {
-    internal class Player
+    public class Player
     {
-        private class PlayerSide
-        {
-            public bool side; //если 1, то белые, иначе черные;
-
-            private void setSide(bool n)
+            public bool temp; //если 1, то белые, иначе черные;
+            public string side;
+            public bool flag;
+            public Player(bool d)
             {
-                side = n;
+                setSide(d);
             }
-        }
+
+            public void setSide(bool n)
+            {
+                temp = n;
+                if (temp == true) side = "w";
+                else side = "b";
+            }
     }
 }

@@ -68,13 +68,14 @@
       <DependentUpon>Start.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -88,6 +89,48 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pawnB.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pics\pawnB.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pics\kingB.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pics\kingW.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pics\knightB.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pics\knightW.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pics\pawnW.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pics\queenB.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pics\queenW.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pics\rookB.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pics\rookW.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pics\bishopB.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pics\bishopW.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pics\chess.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

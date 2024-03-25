@@ -235,8 +235,10 @@ namespace ChessGame
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Location = global::ChessGame.Properties.Settings.Default.aaa1;
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
             this.Name = "GameTogether";
             this.Text = "Chess";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.GameTogether_FormClosed);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
             this.ResumeLayout(false);

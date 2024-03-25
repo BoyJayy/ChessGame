@@ -32,7 +32,7 @@ namespace ChessGame
         {
             this.Hide();
             GameTogether gmt = new GameTogether();
-            gmt.Show(); gmt.Update();
+            gmt.Show();
         }
     }
 }

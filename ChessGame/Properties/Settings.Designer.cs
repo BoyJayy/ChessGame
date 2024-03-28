@@ -37,7 +37,7 @@ namespace ChessGame.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("700, 400")]
+        [global::System.Configuration.DefaultSettingValueAttribute("520, 370")]
         public global::System.Drawing.Point aaa {
             get {
                 return ((global::System.Drawing.Point)(this["aaa"]));
@@ -61,7 +61,7 @@ namespace ChessGame.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("500, 200")]
+        [global::System.Configuration.DefaultSettingValueAttribute("250, 200")]
         public global::System.Drawing.Point aaa1 {
             get {
                 return ((global::System.Drawing.Point)(this["aaa1"]));

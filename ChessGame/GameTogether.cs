@@ -93,20 +93,20 @@ namespace ChessGame
         private static int found = Application.StartupPath.IndexOf("\\bin\\Debug");
         private static string strCoreData = Application.StartupPath.Substring(0, found);
 
-        private Image chessSprites = new Bitmap(strCoreData + "\\pics\\chess.png");
-        private Image kingW_img = new Bitmap(strCoreData + "\\pics\\kingW.png");
-        private Image queenW_img = new Bitmap(strCoreData + "\\pics\\queenW.png");
-        private Image rookW_img = new Bitmap(strCoreData + "\\pics\\rookW.png");
-        private Image knightW_img = new Bitmap(strCoreData + "\\pics\\knightW.png");
-        private Image bishopW_img = new Bitmap(strCoreData + "\\pics\\bishopW.png");
-        private Image pawnW_img = new Bitmap(strCoreData + "\\pics\\pawnW.png");
+        //private Image chessSprites = new Bitmap(strCoreData + "\\pics\\chess.png");
+        //private Image kingW_img = new Bitmap(strCoreData + "\\pics\\kingW.png");
+        //private Image queenW_img = new Bitmap(strCoreData + "\\pics\\queenW.png");
+        //private Image rookW_img = new Bitmap(strCoreData + "\\pics\\rookW.png");
+        //private Image knightW_img = new Bitmap(strCoreData + "\\pics\\knightW.png");
+        //private Image bishopW_img = new Bitmap(strCoreData + "\\pics\\bishopW.png");
+        //private Image pawnW_img = new Bitmap(strCoreData + "\\pics\\pawnW.png");
 
-        private Image kingB_img = new Bitmap(strCoreData + "\\pics\\kingB.png");
-        private Image queenB_img = new Bitmap(strCoreData + "\\pics\\queenB.png");
-        private Image rookB_img = new Bitmap(strCoreData + "\\pics\\rookB.png");
-        private Image knightB_img = new Bitmap(strCoreData + "\\pics\\knightB.png");
-        private Image bishopB_img = new Bitmap(strCoreData + "\\pics\\bishopB.png");
-        private Image pawnB_img = new Bitmap(strCoreData + "\\pics\\pawnB.png");
+        //private Image kingB_img = new Bitmap(strCoreData + "\\pics\\kingB.png");
+        //private Image queenB_img = new Bitmap(strCoreData + "\\pics\\queenB.png");
+        //private Image rookB_img = new Bitmap(strCoreData + "\\pics\\rookB.png");
+        //private Image knightB_img = new Bitmap(strCoreData + "\\pics\\knightB.png");
+        //private Image bishopB_img = new Bitmap(strCoreData + "\\pics\\bishopB.png");
+        //private Image pawnB_img = new Bitmap(strCoreData + "\\pics\\pawnB.png");
 
         private System.Media.SoundPlayer player = new System.Media.SoundPlayer();
 
@@ -149,54 +149,54 @@ namespace ChessGame
                     g.DrawRectangle(blackPen, chessBoard[i, j].rect);
                     if (i == 0 && j == 7) // WHITE start pos
                     {
-                        g.DrawImage(rookW_img, chessBoard[i, j].rect.X + 10, chessBoard[i, j].rect.Y + 12);
+                        g.DrawImage(Properties.Resources.rookW, chessBoard[i, j].rect.X + 10, chessBoard[i, j].rect.Y + 12);
                         chessBoard[i, j].fig = new Figure(4, i, j, 'w');
                     }
                     if (j == 6)
                     {
-                        g.DrawImage(pawnW_img, chessBoard[i, j].rect.X + 15, chessBoard[i, j].rect.Y + 12);
+                        g.DrawImage(Properties.Resources.pawnW, chessBoard[i, j].rect.X + 15, chessBoard[i, j].rect.Y + 12);
                         chessBoard[i, j].fig = new Figure(1, i, j, 'w');
                     }
                     if (i == 1 && j == 7)
                     {
-                        g.DrawImage(knightW_img, chessBoard[i, j].rect.X + 8, chessBoard[i, j].rect.Y + 12);
+                        g.DrawImage(Properties.Resources.knightW, chessBoard[i, j].rect.X + 8, chessBoard[i, j].rect.Y + 12);
                         chessBoard[i, j].fig = new Figure(2, i, j, 'w');
                     }
                     if (i == 2 && j == 7)
                     {
-                        g.DrawImage(bishopW_img, chessBoard[i, j].rect.X + 8, chessBoard[i, j].rect.Y + 10);
+                        g.DrawImage(Properties.Resources.bishopW, chessBoard[i, j].rect.X + 8, chessBoard[i, j].rect.Y + 10);
                         chessBoard[i, j].fig = new Figure(3, i, j, 'w');
                     }
                     if (i == 3 && j == 7)
                     {
-                        g.DrawImage(queenW_img, chessBoard[i, j].rect.X + 5, chessBoard[i, j].rect.Y + 8);
+                        g.DrawImage(Properties.Resources.queenW, chessBoard[i, j].rect.X + 5, chessBoard[i, j].rect.Y + 8);
                         chessBoard[i, j].fig = new Figure(5, i, j, 'w');
                     }
                     if (i == 4 && j == 7)
                     {
-                        g.DrawImage(kingW_img, chessBoard[i, j].rect.X + 5, chessBoard[i, j].rect.Y + 3);
+                        g.DrawImage(Properties.Resources.kingW, chessBoard[i, j].rect.X + 5, chessBoard[i, j].rect.Y + 3);
                         chessBoard[i, j].fig = new Figure(6, i, j, 'w');
                     }
                     if (i == 5 && j == 7)
                     {
-                        g.DrawImage(bishopW_img, chessBoard[i, j].rect.X + 8, chessBoard[i, j].rect.Y + 10);
+                        g.DrawImage(Properties.Resources.bishopW, chessBoard[i, j].rect.X + 8, chessBoard[i, j].rect.Y + 10);
                         chessBoard[i, j].fig = new Figure(3, i, j, 'w');
                     }
                     if (i == 6 && j == 7)
                     {
-                        g.DrawImage(knightW_img, chessBoard[i, j].rect.X + 6, chessBoard[i, j].rect.Y + 10);
+                        g.DrawImage(Properties.Resources.knightW, chessBoard[i, j].rect.X + 6, chessBoard[i, j].rect.Y + 10);
                         chessBoard[i, j].fig = new Figure(2, i, j, 'w');
                     }
                     if (i == 7 && j == 7)
                     {
-                        g.DrawImage(rookW_img, chessBoard[i, j].rect.X + 10, chessBoard[i, j].rect.Y + 12);
+                        g.DrawImage(Properties.Resources.rookW, chessBoard[i, j].rect.X + 10, chessBoard[i, j].rect.Y + 12);
                         chessBoard[i, j].fig = new Figure(4, i, j, 'w');
                     }
 
 
                     if (i == 0 && j == 0) // BLACK start pos
                     {
-                        g.DrawImage(rookB_img, chessBoard[i, j].rect.X + 10, chessBoard[i, j].rect.Y + 12);
+                        g.DrawImage(Properties.Resources.rookB, chessBoard[i, j].rect.X + 10, chessBoard[i, j].rect.Y + 12);
                         chessBoard[i, j].fig = new Figure(4, i, j, 'b');
                     }
                     if (j == 1)
@@ -211,32 +211,32 @@ namespace ChessGame
                     }
                     if (i == 2 && j == 0)
                     {
-                        g.DrawImage(bishopB_img, chessBoard[i, j].rect.X + 8, chessBoard[i, j].rect.Y + 10);
+                        g.DrawImage(Properties.Resources.bishopB, chessBoard[i, j].rect.X + 8, chessBoard[i, j].rect.Y + 10);
                         chessBoard[i, j].fig = new Figure(3, i, j, 'b');
                     }
                     if (i == 3 && j == 0)
                     {
-                        g.DrawImage(queenB_img, chessBoard[i, j].rect.X + 5, chessBoard[i, j].rect.Y + 8);
+                        g.DrawImage(Properties.Resources.queenB, chessBoard[i, j].rect.X + 5, chessBoard[i, j].rect.Y + 8);
                         chessBoard[i, j].fig = new Figure(5, i, j, 'b');
                     }
                     if (i == 4 && j == 0)
                     {
-                        g.DrawImage(kingB_img, chessBoard[i, j].rect.X + 5, chessBoard[i, j].rect.Y + 3);
+                        g.DrawImage(Properties.Resources.kingB, chessBoard[i, j].rect.X + 5, chessBoard[i, j].rect.Y + 3);
                         chessBoard[i, j].fig = new Figure(6, i, j, 'b');
                     }
                     if (i == 5 && j == 0)
                     {
-                        g.DrawImage(bishopB_img, chessBoard[i, j].rect.X + 8, chessBoard[i, j].rect.Y + 10);
+                        g.DrawImage(Properties.Resources.bishopB, chessBoard[i, j].rect.X + 8, chessBoard[i, j].rect.Y + 10);
                         chessBoard[i, j].fig = new Figure(3, i, j, 'b');
                     }
                     if (i == 6 && j == 0)
                     {
-                        g.DrawImage(knightB_img, chessBoard[i, j].rect.X + 6, chessBoard[i, j].rect.Y + 10);
+                        g.DrawImage(Properties.Resources.knightB, chessBoard[i, j].rect.X + 6, chessBoard[i, j].rect.Y + 10);
                         chessBoard[i, j].fig = new Figure(2, i, j, 'b');
                     }
                     if (i == 7 && j == 0)
                     {
-                        g.DrawImage(rookB_img, chessBoard[i, j].rect.X + 10, chessBoard[i, j].rect.Y + 12);
+                        g.DrawImage(Properties.Resources.rookB, chessBoard[i, j].rect.X + 10, chessBoard[i, j].rect.Y + 12);
                         chessBoard[i, j].fig = new Figure(4, i, j, 'b');
                     }
                     //if (chessBoard[i, j].isFugure == true)
@@ -286,62 +286,62 @@ namespace ChessGame
                             }
                             if (chessBoard[i, j].fig.data == 3 && chessBoard[i, j].fig.col == 'b')
                             {
-                                g.DrawImage(bishopB_img, chessBoard[i, j].rect.X + 8, chessBoard[i, j].rect.Y + 8);
+                                g.DrawImage(Properties.Resources.bishopB, chessBoard[i, j].rect.X + 8, chessBoard[i, j].rect.Y + 8);
                                 chessBoard[i, j].flag = true;
                                 isClicked = true;
                             }
                             if (chessBoard[i, j].fig.data == 4 && chessBoard[i, j].fig.col == 'b')
                             {
-                                g.DrawImage(rookB_img, chessBoard[i, j].rect.X + 10, chessBoard[i, j].rect.Y + 12);
+                                g.DrawImage(Properties.Resources.rookB, chessBoard[i, j].rect.X + 10, chessBoard[i, j].rect.Y + 12);
                                 chessBoard[i, j].flag = true;
                                 isClicked = true;
                             }
                             if (chessBoard[i, j].fig.data == 5 && chessBoard[i, j].fig.col == 'b')
                             {
-                                g.DrawImage(queenB_img, chessBoard[i, j].rect.X + 5, chessBoard[i, j].rect.Y + 8);
+                                g.DrawImage(Properties.Resources.queenB, chessBoard[i, j].rect.X + 5, chessBoard[i, j].rect.Y + 8);
                                 chessBoard[i, j].flag = true;
                                 isClicked = true;
                             }
                             if (chessBoard[i, j].fig.data == 6 && chessBoard[i, j].fig.col == 'b')
                             {
-                                g.DrawImage(kingB_img, chessBoard[i, j].rect.X + 5, chessBoard[i, j].rect.Y + 4);
+                                g.DrawImage(Properties.Resources.kingB, chessBoard[i, j].rect.X + 5, chessBoard[i, j].rect.Y + 4);
                                 chessBoard[i, j].flag = true;
                                 isClicked = true;
                             }
 
                             if (chessBoard[i, j].fig.data == 1 && chessBoard[i, j].fig.col == 'w') // WHITE
                             {
-                                g.DrawImage(pawnW_img, chessBoard[i, j].rect.X + 15, chessBoard[i, j].rect.Y + 12);
+                                g.DrawImage(Properties.Resources.pawnW, chessBoard[i, j].rect.X + 15, chessBoard[i, j].rect.Y + 12);
                                 chessBoard[i, j].flag = true;
                                 isClicked = true;
                             }
                             if (chessBoard[i, j].fig.data == 2 && chessBoard[i, j].fig.col == 'w')
                             {
-                                g.DrawImage(knightW_img, chessBoard[i, j].rect.X + 8, chessBoard[i, j].rect.Y + 12);
+                                g.DrawImage(Properties.Resources.knightW, chessBoard[i, j].rect.X + 8, chessBoard[i, j].rect.Y + 12);
                                 chessBoard[i, j].flag = true;
                                 isClicked = true;
                             }
                             if (chessBoard[i, j].fig.data == 3 && chessBoard[i, j].fig.col == 'w')
                             {
-                                g.DrawImage(bishopW_img, chessBoard[i, j].rect.X + 8, chessBoard[i, j].rect.Y + 8);
+                                g.DrawImage(Properties.Resources.bishopW, chessBoard[i, j].rect.X + 8, chessBoard[i, j].rect.Y + 8);
                                 chessBoard[i, j].flag = true;
                                 isClicked = true;
                             }
                             if (chessBoard[i, j].fig.data == 4 && chessBoard[i, j].fig.col == 'w')
                             {
-                                g.DrawImage(rookW_img, chessBoard[i, j].rect.X + 10, chessBoard[i, j].rect.Y + 12);
+                                g.DrawImage(Properties.Resources.rookW, chessBoard[i, j].rect.X + 10, chessBoard[i, j].rect.Y + 12);
                                 chessBoard[i, j].flag = true;
                                 isClicked = true;
                             }
                             if (chessBoard[i, j].fig.data == 5 && chessBoard[i, j].fig.col == 'w')
                             {
-                                g.DrawImage(queenW_img, chessBoard[i, j].rect.X + 5, chessBoard[i, j].rect.Y + 8);
+                                g.DrawImage(Properties.Resources.queenW, chessBoard[i, j].rect.X + 5, chessBoard[i, j].rect.Y + 8);
                                 chessBoard[i, j].flag = true;
                                 isClicked = true;
                             }
                             if (chessBoard[i, j].fig.data == 6 && chessBoard[i, j].fig.col == 'w')
                             {
-                                g.DrawImage(kingW_img, chessBoard[i, j].rect.X + 5, chessBoard[i, j].rect.Y + 4);
+                                g.DrawImage(Properties.Resources.kingW, chessBoard[i, j].rect.X + 5, chessBoard[i, j].rect.Y + 4);
                                 chessBoard[i, j].flag = true;
                                 isClicked = true;
                             }
@@ -363,68 +363,68 @@ namespace ChessGame
                             }
                             if (chessBoard[i, j].fig.data == 2 && chessBoard[i, j].fig.col == 'b')
                             {
-                                g.DrawImage(knightB_img, chessBoard[i, j].rect.X + 8, chessBoard[i, j].rect.Y + 12);
+                                g.DrawImage(Properties.Resources.knightB, chessBoard[i, j].rect.X + 8, chessBoard[i, j].rect.Y + 12);
                                 chessBoard[i, j].flag = false;
                                 isClicked = false;
                             }
                             if (chessBoard[i, j].fig.data == 3 && chessBoard[i, j].fig.col == 'b')
                             {
-                                g.DrawImage(bishopB_img, chessBoard[i, j].rect.X + 8, chessBoard[i, j].rect.Y + 12);
+                                g.DrawImage(Properties.Resources.bishopB, chessBoard[i, j].rect.X + 8, chessBoard[i, j].rect.Y + 12);
                                 chessBoard[i, j].flag = false;
                                 isClicked = false;
                             }
                             if (chessBoard[i, j].fig.data == 4 && chessBoard[i, j].fig.col == 'b')
                             {
-                                g.DrawImage(rookB_img, chessBoard[i, j].rect.X + 10, chessBoard[i, j].rect.Y + 12);
+                                g.DrawImage(Properties.Resources.rookB, chessBoard[i, j].rect.X + 10, chessBoard[i, j].rect.Y + 12);
                                 chessBoard[i, j].flag = false;
                                 isClicked = false;
                             }
                             if (chessBoard[i, j].fig.data == 5 && chessBoard[i, j].fig.col == 'b')
                             {
-                                g.DrawImage(queenB_img, chessBoard[i, j].rect.X + 5, chessBoard[i, j].rect.Y + 8);
+                                g.DrawImage(Properties.Resources.queenB, chessBoard[i, j].rect.X + 5, chessBoard[i, j].rect.Y + 8);
                                 chessBoard[i, j].flag = false;
                                 isClicked = false;
                             }
                             if (chessBoard[i, j].fig.data == 6 && chessBoard[i, j].fig.col == 'b')
                             {
-                                g.DrawImage(kingB_img, chessBoard[i, j].rect.X + 5, chessBoard[i, j].rect.Y + 4);
+                                g.DrawImage(Properties.Resources.kingB, chessBoard[i, j].rect.X + 5, chessBoard[i, j].rect.Y + 4);
                                 chessBoard[i, j].flag = false;
                                 isClicked = false;
                             }
 
                             if (chessBoard[i, j].fig.data == 1 && chessBoard[i, j].fig.col == 'w') // WHITE
                             {
-                                g.DrawImage(pawnW_img, chessBoard[i, j].rect.X + 15, chessBoard[i, j].rect.Y + 12);
+                                g.DrawImage(Properties.Resources.pawnW, chessBoard[i, j].rect.X + 15, chessBoard[i, j].rect.Y + 12);
                                 chessBoard[i, j].flag = false;
                                 isClicked = false;
                             }
                             if (chessBoard[i, j].fig.data == 2 && chessBoard[i, j].fig.col == 'w')
                             {
-                                g.DrawImage(knightW_img, chessBoard[i, j].rect.X + 8, chessBoard[i, j].rect.Y + 12);
+                                g.DrawImage(Properties.Resources.knightW, chessBoard[i, j].rect.X + 8, chessBoard[i, j].rect.Y + 12);
                                 chessBoard[i, j].flag = false;
                                 isClicked = false;
                             }
                             if (chessBoard[i, j].fig.data == 3 && chessBoard[i, j].fig.col == 'w')
                             {
-                                g.DrawImage(bishopW_img, chessBoard[i, j].rect.X + 8, chessBoard[i, j].rect.Y + 8);
+                                g.DrawImage(Properties.Resources.bishopW, chessBoard[i, j].rect.X + 8, chessBoard[i, j].rect.Y + 8);
                                 chessBoard[i, j].flag = false;
                                 isClicked = false;
                             }
                             if (chessBoard[i, j].fig.data == 4 && chessBoard[i, j].fig.col == 'w')
                             {
-                                g.DrawImage(rookW_img, chessBoard[i, j].rect.X + 10, chessBoard[i, j].rect.Y + 12);
+                                g.DrawImage(Properties.Resources.rookW, chessBoard[i, j].rect.X + 10, chessBoard[i, j].rect.Y + 12);
                                 chessBoard[i, j].flag = false;
                                 isClicked = false;
                             }
                             if (chessBoard[i, j].fig.data == 5 && chessBoard[i, j].fig.col == 'w')
                             {
-                                g.DrawImage(queenW_img, chessBoard[i, j].rect.X + 5, chessBoard[i, j].rect.Y + 8);
+                                g.DrawImage(Properties.Resources.queenW, chessBoard[i, j].rect.X + 5, chessBoard[i, j].rect.Y + 8);
                                 chessBoard[i, j].flag = false;
                                 isClicked = false;
                             }
                             if (chessBoard[i, j].fig.data == 6 && chessBoard[i, j].fig.col == 'w')
                             {
-                                g.DrawImage(kingW_img, chessBoard[i, j].rect.X + 5, chessBoard[i, j].rect.Y + 4);
+                                g.DrawImage(Properties.Resources.kingW, chessBoard[i, j].rect.X + 5, chessBoard[i, j].rect.Y + 4);
                                 chessBoard[i, j].flag = false;
                                 isClicked = false;
                             }
@@ -452,68 +452,68 @@ namespace ChessGame
                             }
                             if (chessBoard[i, j].fig.data == 2 && chessBoard[i, j].fig.col == 'b')
                             {
-                                g.DrawImage(knightB_img, chessBoard[i, j].rect.X + 8, chessBoard[i, j].rect.Y + 12);
+                                g.DrawImage(Properties.Resources.knightB, chessBoard[i, j].rect.X + 8, chessBoard[i, j].rect.Y + 12);
                                 chessBoard[i, j].flag = false;
                                 isClicked = false;
                             }
                             if (chessBoard[i, j].fig.data == 3 && chessBoard[i, j].fig.col == 'b')
                             {
-                                g.DrawImage(bishopB_img, chessBoard[i, j].rect.X + 8, chessBoard[i, j].rect.Y + 8);
+                                g.DrawImage(Properties.Resources.bishopB, chessBoard[i, j].rect.X + 8, chessBoard[i, j].rect.Y + 8);
                                 chessBoard[i, j].flag = false;
                                 isClicked = false;
                             }
                             if (chessBoard[i, j].fig.data == 4 && chessBoard[i, j].fig.col == 'b')
                             {
-                                g.DrawImage(rookB_img, chessBoard[i, j].rect.X + 10, chessBoard[i, j].rect.Y + 12);
+                                g.DrawImage(Properties.Resources.rookB, chessBoard[i, j].rect.X + 10, chessBoard[i, j].rect.Y + 12);
                                 chessBoard[i, j].flag = false;
                                 isClicked = false;
                             }
                             if (chessBoard[i, j].fig.data == 5 && chessBoard[i, j].fig.col == 'b')
                             {
-                                g.DrawImage(queenB_img, chessBoard[i, j].rect.X + 5, chessBoard[i, j].rect.Y + 8);
+                                g.DrawImage(Properties.Resources.queenB, chessBoard[i, j].rect.X + 5, chessBoard[i, j].rect.Y + 8);
                                 chessBoard[i, j].flag = false;
                                 isClicked = false;
                             }
                             if (chessBoard[i, j].fig.data == 6 && chessBoard[i, j].fig.col == 'b')
                             {
-                                g.DrawImage(kingB_img, chessBoard[i, j].rect.X + 5, chessBoard[i, j].rect.Y + 4);
+                                g.DrawImage(Properties.Resources.kingB, chessBoard[i, j].rect.X + 5, chessBoard[i, j].rect.Y + 4);
                                 chessBoard[i, j].flag = false;
                                 isClicked = false;
                             }
 
                             if (chessBoard[i, j].fig.data == 1 && chessBoard[i, j].fig.col == 'w') // WHITE
                             {
-                                g.DrawImage(pawnW_img, chessBoard[i, j].rect.X + 15, chessBoard[i, j].rect.Y + 12);
+                                g.DrawImage(Properties.Resources.pawnW, chessBoard[i, j].rect.X + 15, chessBoard[i, j].rect.Y + 12);
                                 chessBoard[i, j].flag = false;
                                 isClicked = false;
                             }
                             if (chessBoard[i, j].fig.data == 2 && chessBoard[i, j].fig.col == 'w')
                             {
-                                g.DrawImage(knightW_img, chessBoard[i, j].rect.X + 8, chessBoard[i, j].rect.Y + 12);
+                                g.DrawImage(Properties.Resources.knightW, chessBoard[i, j].rect.X + 8, chessBoard[i, j].rect.Y + 12);
                                 chessBoard[i, j].flag = false;
                                 isClicked = false;
                             }
                             if (chessBoard[i, j].fig.data == 3 && chessBoard[i, j].fig.col == 'w')
                             {
-                                g.DrawImage(bishopW_img, chessBoard[i, j].rect.X + 8, chessBoard[i, j].rect.Y + 8);
+                                g.DrawImage(Properties.Resources.bishopW, chessBoard[i, j].rect.X + 8, chessBoard[i, j].rect.Y + 8);
                                 chessBoard[i, j].flag = false;
                                 isClicked = false;
                             }
                             if (chessBoard[i, j].fig.data == 4 && chessBoard[i, j].fig.col == 'w')
                             {
-                                g.DrawImage(rookW_img, chessBoard[i, j].rect.X + 10, chessBoard[i, j].rect.Y + 12);
+                                g.DrawImage(Properties.Resources.rookW, chessBoard[i, j].rect.X + 10, chessBoard[i, j].rect.Y + 12);
                                 chessBoard[i, j].flag = false;
                                 isClicked = false;
                             }
                             if (chessBoard[i, j].fig.data == 5 && chessBoard[i, j].fig.col == 'w')
                             {
-                                g.DrawImage(queenW_img, chessBoard[i, j].rect.X + 5, chessBoard[i, j].rect.Y + 8);
+                                g.DrawImage(Properties.Resources.queenW, chessBoard[i, j].rect.X + 5, chessBoard[i, j].rect.Y + 8);
                                 chessBoard[i, j].flag = false;
                                 isClicked = false;
                             }
                             if (chessBoard[i, j].fig.data == 6 && chessBoard[i, j].fig.col == 'w')
                             {
-                                g.DrawImage(kingW_img, chessBoard[i, j].rect.X + 5, chessBoard[i, j].rect.Y + 4);
+                                g.DrawImage(Properties.Resources.kingW, chessBoard[i, j].rect.X + 5, chessBoard[i, j].rect.Y + 4);
                                 chessBoard[i, j].flag = false;
                                 isClicked = false;
                             }
@@ -553,14 +553,14 @@ namespace ChessGame
                                             {
                                                 g.FillRectangle(col, chessBoard[i, j].rect);
                                                 g.DrawRectangle(blackPen, chessBoard[i, j].rect);
-                                                g.DrawImage(pawnB_img, chessBoard[i, j].rect.X + 15, chessBoard[i, j].rect.Y + 12);
+                                                g.DrawImage(Properties.Resources.pawnB, chessBoard[i, j].rect.X + 15, chessBoard[i, j].rect.Y + 12);
                                             }
                                         }
                                         if (chessBoard[i, j].fig.data == 2 && chessBoard[i, j].fig.col == 'b' &&
                                             ((k - i == 1 || k - i == -1) && (m - j == 2 || m - j == -2) ||
                                             (k - i == 2 || k - i == -2) && (m - j == 1 || m - j == -1)))
                                         {
-                                            g.DrawImage(knightB_img, chessBoard[k, m].rect.X + 7, chessBoard[k, m].rect.Y + 10);
+                                            g.DrawImage(Properties.Resources.knightB, chessBoard[k, m].rect.X + 7, chessBoard[k, m].rect.Y + 10);
                                             chessBoard[k, m].fig = new Figure(2, i, j, 'b');
                                             chessBoard[i, j].fig.resetAll();
                                             g.FillRectangle(col, chessBoard[i, j].rect);
@@ -573,7 +573,7 @@ namespace ChessGame
                                         }
                                         if (chessBoard[i, j].fig.data == 3 && chessBoard[i, j].fig.col == 'b' && Math.Abs(k - i) == Math.Abs(m - j))
                                         {
-                                            g.DrawImage(bishopB_img, chessBoard[k, m].rect.X + 8, chessBoard[k, m].rect.Y + 8);
+                                            g.DrawImage(Properties.Resources.bishopB, chessBoard[k, m].rect.X + 8, chessBoard[k, m].rect.Y + 8);
                                             chessBoard[k, m].fig = new Figure(3, i, j, 'b');
                                             chessBoard[i, j].fig.resetAll();
                                             g.FillRectangle(col, chessBoard[i, j].rect);
@@ -586,7 +586,7 @@ namespace ChessGame
                                         }
                                         if (chessBoard[i, j].fig.data == 4 && chessBoard[i, j].fig.col == 'b' && ((k == i && m != j) || (m == j && k != i)))
                                         {
-                                            g.DrawImage(rookB_img, chessBoard[k, m].rect.X + 10, chessBoard[k, m].rect.Y + 12);
+                                            g.DrawImage(Properties.Resources.rookB, chessBoard[k, m].rect.X + 10, chessBoard[k, m].rect.Y + 12);
                                             chessBoard[k, m].fig = new Figure(4, i, j, 'b');
                                             chessBoard[i, j].fig.resetAll();
                                             g.FillRectangle(col, chessBoard[i, j].rect);
@@ -599,7 +599,7 @@ namespace ChessGame
                                         }
                                         if (chessBoard[i, j].fig.data == 5 && chessBoard[i, j].fig.col == 'b' && (((k == i && m != j) || (m == j && k != i)) || (Math.Abs(k - i) == Math.Abs(m - j))))
                                         {
-                                            g.DrawImage(queenB_img, chessBoard[k, m].rect.X + 5, chessBoard[k, m].rect.Y + 8);
+                                            g.DrawImage(Properties.Resources.queenB, chessBoard[k, m].rect.X + 5, chessBoard[k, m].rect.Y + 8);
                                             chessBoard[k, m].fig = new Figure(5, i, j, 'b');
                                             chessBoard[i, j].fig.resetAll();
                                             g.FillRectangle(col, chessBoard[i, j].rect);
@@ -612,7 +612,7 @@ namespace ChessGame
                                         }
                                         if (chessBoard[i, j].fig.data == 6 && chessBoard[i, j].fig.col == 'b' && Math.Abs(k - i) <= 1 && Math.Abs(m - j) <= 1)
                                         {
-                                            g.DrawImage(kingB_img, chessBoard[k, m].rect.X + 5, chessBoard[k, m].rect.Y + 4);
+                                            g.DrawImage(Properties.Resources.kingB, chessBoard[k, m].rect.X + 5, chessBoard[k, m].rect.Y + 4);
                                             chessBoard[k, m].fig = new Figure(6, i, j, 'b');
                                             chessBoard[i, j].fig.resetAll();
                                             g.FillRectangle(col, chessBoard[i, j].rect);
@@ -626,7 +626,7 @@ namespace ChessGame
 
                                         if (chessBoard[i, j].fig.data == 1 && chessBoard[i, j].fig.col == 'w'&& k - i == 0 && m - j < 0 && m - j >= -2) // WHITE
                                         {
-                                            g.DrawImage(pawnW_img, chessBoard[k, m].rect.X + 15, chessBoard[k, m].rect.Y + 12);
+                                            g.DrawImage(Properties.Resources.pawnW, chessBoard[k, m].rect.X + 15, chessBoard[k, m].rect.Y + 12);
                                             chessBoard[k, m].fig = new Figure(1, i, j, 'w');
                                             chessBoard[i, j].fig.resetAll();
                                             g.FillRectangle(col, chessBoard[i, j].rect);
@@ -641,7 +641,7 @@ namespace ChessGame
                                             ((k - i == 1 || k - i == -1) && (m - j == 2 || m - j == -2) ||
                                             (k - i == 2 || k - i == -2) && (m - j == 1 || m - j == -1)))
                                         {
-                                            g.DrawImage(knightW_img, chessBoard[k, m].rect.X + 8, chessBoard[k, m].rect.Y + 12);
+                                            g.DrawImage(Properties.Resources.knightW, chessBoard[k, m].rect.X + 8, chessBoard[k, m].rect.Y + 12);
                                             chessBoard[k, m].fig = new Figure(2, i, j, 'w');
                                             chessBoard[i, j].fig.resetAll();
                                             g.FillRectangle(col, chessBoard[i, j].rect);
@@ -654,7 +654,7 @@ namespace ChessGame
                                         }
                                         if (chessBoard[i, j].fig.data == 3 && chessBoard[i, j].fig.col == 'w' && Math.Abs(k - i) == Math.Abs(m - j))
                                         {
-                                            g.DrawImage(bishopW_img, chessBoard[k, m].rect.X + 8, chessBoard[k, m].rect.Y + 8);
+                                            g.DrawImage(Properties.Resources.bishopW, chessBoard[k, m].rect.X + 8, chessBoard[k, m].rect.Y + 8);
                                             chessBoard[k, m].fig = new Figure(3, i, j, 'w');
                                             chessBoard[i, j].fig.resetAll();
                                             g.FillRectangle(col, chessBoard[i, j].rect);
@@ -667,7 +667,7 @@ namespace ChessGame
                                         }
                                         if (chessBoard[i, j].fig.data == 4 && chessBoard[i, j].fig.col == 'w' && ((k == i && m != j) || (m == j && k != i)))
                                         {
-                                            g.DrawImage(rookW_img, chessBoard[k, m].rect.X + 10, chessBoard[k, m].rect.Y + 12);
+                                            g.DrawImage(Properties.Resources.rookW, chessBoard[k, m].rect.X + 10, chessBoard[k, m].rect.Y + 12);
                                             chessBoard[k, m].fig = new Figure(4, i, j, 'w');
                                             chessBoard[i, j].fig.resetAll();
                                             g.FillRectangle(col, chessBoard[i, j].rect);
@@ -680,7 +680,7 @@ namespace ChessGame
                                         }
                                         if (chessBoard[i, j].fig.data == 5 && chessBoard[i, j].fig.col == 'w' && (((k == i && m != j) || (m == j && k != i)) || (Math.Abs(k - i) == Math.Abs(m - j))))
                                         {
-                                            g.DrawImage(queenW_img, chessBoard[k, m].rect.X + 5, chessBoard[k, m].rect.Y + 8);
+                                            g.DrawImage(Properties.Resources.queenW, chessBoard[k, m].rect.X + 5, chessBoard[k, m].rect.Y + 8);
                                             chessBoard[k, m].fig = new Figure(5, i, j, 'w');
                                             chessBoard[i, j].fig.resetAll();
                                             g.FillRectangle(col, chessBoard[i, j].rect);
@@ -693,7 +693,7 @@ namespace ChessGame
                                         }
                                         if (chessBoard[i, j].fig.data == 6 && chessBoard[i, j].fig.col == 'w' && Math.Abs(k - i) <= 1 && Math.Abs(m - j) <= 1)
                                         {
-                                            g.DrawImage(kingW_img, chessBoard[k, m].rect.X + 5, chessBoard[k, m].rect.Y + 4);
+                                            g.DrawImage(Properties.Resources.kingW, chessBoard[k, m].rect.X + 5, chessBoard[k, m].rect.Y + 4);
                                             chessBoard[k, m].fig = new Figure(6, i, j, 'w');
                                             chessBoard[i, j].fig.resetAll();
                                             g.FillRectangle(col, chessBoard[i, j].rect);
@@ -717,6 +717,11 @@ namespace ChessGame
         private void GameTogether_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.OpenForms[0].Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -22,7 +22,7 @@ namespace ChessGame.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace ChessGame.Properties {
         ///   Возвращает кэшированный экземпляр ResourceManager, использованный этим классом.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ChessGame.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace ChessGame.Properties {
         ///   обращений к ресурсу с помощью этого класса ресурса со строгой типизацией.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace ChessGame.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap bishopB {
+        public static System.Drawing.Bitmap bishopB {
             get {
                 object obj = ResourceManager.GetObject("bishopB", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -73,7 +73,7 @@ namespace ChessGame.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap bishopW {
+        public static System.Drawing.Bitmap bishopW {
             get {
                 object obj = ResourceManager.GetObject("bishopW", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -83,7 +83,7 @@ namespace ChessGame.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap chess {
+        public static System.Drawing.Bitmap chess {
             get {
                 object obj = ResourceManager.GetObject("chess", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -93,7 +93,7 @@ namespace ChessGame.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap kingB {
+        public static System.Drawing.Bitmap kingB {
             get {
                 object obj = ResourceManager.GetObject("kingB", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -103,7 +103,7 @@ namespace ChessGame.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap kingW {
+        public static System.Drawing.Bitmap kingW {
             get {
                 object obj = ResourceManager.GetObject("kingW", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -113,7 +113,7 @@ namespace ChessGame.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap knightB {
+        public static System.Drawing.Bitmap knightB {
             get {
                 object obj = ResourceManager.GetObject("knightB", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -123,7 +123,7 @@ namespace ChessGame.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap knightW {
+        public static System.Drawing.Bitmap knightW {
             get {
                 object obj = ResourceManager.GetObject("knightW", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -133,7 +133,7 @@ namespace ChessGame.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.IO.UnmanagedMemoryStream, аналогичного System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream move {
+        public static System.IO.UnmanagedMemoryStream move {
             get {
                 return ResourceManager.GetStream("move", resourceCulture);
             }
@@ -142,7 +142,7 @@ namespace ChessGame.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pawnB {
+        public static System.Drawing.Bitmap pawnB {
             get {
                 object obj = ResourceManager.GetObject("pawnB", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -152,7 +152,7 @@ namespace ChessGame.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pawnW {
+        public static System.Drawing.Bitmap pawnW {
             get {
                 object obj = ResourceManager.GetObject("pawnW", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -162,7 +162,7 @@ namespace ChessGame.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap queenB {
+        public static System.Drawing.Bitmap queenB {
             get {
                 object obj = ResourceManager.GetObject("queenB", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -172,7 +172,7 @@ namespace ChessGame.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap queenW {
+        public static System.Drawing.Bitmap queenW {
             get {
                 object obj = ResourceManager.GetObject("queenW", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -182,7 +182,7 @@ namespace ChessGame.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap rookB {
+        public static System.Drawing.Bitmap rookB {
             get {
                 object obj = ResourceManager.GetObject("rookB", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -192,7 +192,7 @@ namespace ChessGame.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap rookW {
+        public static System.Drawing.Bitmap rookW {
             get {
                 object obj = ResourceManager.GetObject("rookW", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -202,7 +202,7 @@ namespace ChessGame.Properties {
         /// <summary>
         ///   Ищет локализованную строку, похожую на 12345.
         /// </summary>
-        internal static string sdf {
+        public static string sdf {
             get {
                 return ResourceManager.GetString("sdf", resourceCulture);
             }

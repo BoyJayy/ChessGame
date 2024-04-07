@@ -788,10 +788,5 @@ namespace ChessGame
         {
             Application.OpenForms[0].Show();
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
     }
 }

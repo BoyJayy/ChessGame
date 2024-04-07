@@ -559,6 +559,37 @@ namespace ChessGame
                                                 g.DrawImage(Properties.Resources.pawnB, chessBoard[i, j].rect.X + 15, chessBoard[i, j].rect.Y + 12);
                                             }
                                         }
+                                        if (chessBoard[i, j].fig.data == 1 && chessBoard[i, j].fig.col == 'b' && k - i == 0 && m - j > 0 && m - j <= 1 && chessBoard[i, j].fig.check_for_pawn == true)
+                                        {
+                                            bool f = true;
+                                            for (int y = m; y > j; y--)
+                                            {
+                                                if (chessBoard[k, y].isFugure)
+                                                {
+                                                    f = false;
+                                                }
+                                            }
+                                            if (f)
+                                            {
+                                                g.DrawImage(Properties.Resources.pawnB, chessBoard[k, m].rect.X + 15, chessBoard[k, m].rect.Y + 12);
+                                                chessBoard[k, m].fig = new Figure(1, i, j, 'b');
+                                                chessBoard[i, j].fig.resetAll();
+                                                g.FillRectangle(col, chessBoard[i, j].rect);
+                                                g.DrawRectangle(blackPen, chessBoard[i, j].rect);
+                                                //player.SoundLocation = @strCoreData + "\\sounds\\move.wav";
+                                                //player.Play();
+                                                chessBoard[i, j].isFugure = false;
+                                                isClicked = false;
+                                                chessBoard[k, m].isFugure = true;
+                                                chessBoard[k, m].fig.check_for_pawn = true;
+                                            }
+                                            else
+                                            {
+                                                g.FillRectangle(col, chessBoard[i, j].rect);
+                                                g.DrawRectangle(blackPen, chessBoard[i, j].rect);
+                                                g.DrawImage(Properties.Resources.pawnB, chessBoard[i, j].rect.X + 15, chessBoard[i, j].rect.Y + 12);
+                                            }
+                                        }
                                         if (chessBoard[i, j].fig.data == 2 && chessBoard[i, j].fig.col == 'b' &&
                                             ((k - i == 1 || k - i == -1) && (m - j == 2 || m - j == -2) ||
                                             (k - i == 2 || k - i == -2) && (m - j == 1 || m - j == -1)))
@@ -683,6 +714,37 @@ namespace ChessGame
                                                 g.DrawImage(Properties.Resources.pawnB, chessBoard[i, j].rect.X + 15, chessBoard[i, j].rect.Y + 12);
                                             }
                                         }
+                                        if (chessBoard[i, j].fig.data == 1 && chessBoard[i, j].fig.col == 'w' && k - i == 0 && m - j < 0 && m - j >= -1 && chessBoard[i, j].fig.check_for_pawn == true)
+                                        {
+                                            bool f = true;
+                                            for (int y = m; y > j; y--)
+                                            {
+                                                if (chessBoard[k, y].isFugure)
+                                                {
+                                                    f = false;
+                                                }
+                                            }
+                                            if (f)
+                                            {
+                                                g.DrawImage(Properties.Resources.pawnW, chessBoard[k, m].rect.X + 15, chessBoard[k, m].rect.Y + 12);
+                                                chessBoard[k, m].fig = new Figure(1, i, j, 'w');
+                                                chessBoard[i, j].fig.resetAll();
+                                                g.FillRectangle(col, chessBoard[i, j].rect);
+                                                g.DrawRectangle(blackPen, chessBoard[i, j].rect);
+                                                //player.SoundLocation = @strCoreData + "\\sounds\\move.wav";
+                                                //player.Play();
+                                                chessBoard[i, j].isFugure = false;
+                                                isClicked = false;
+                                                chessBoard[k, m].isFugure = true;
+                                                chessBoard[k, m].fig.check_for_pawn = true;
+                                            }
+                                            else
+                                            {
+                                                g.FillRectangle(col, chessBoard[i, j].rect);
+                                                g.DrawRectangle(blackPen, chessBoard[i, j].rect);
+                                                g.DrawImage(Properties.Resources.pawnB, chessBoard[i, j].rect.X + 15, chessBoard[i, j].rect.Y + 12);
+                                            }
+                                        }
                                         if (chessBoard[i, j].fig.data == 2 && chessBoard[i, j].fig.col == 'w' &&
                                             ((k - i == 1 || k - i == -1) && (m - j == 2 || m - j == -2) ||
                                             (k - i == 2 || k - i == -2) && (m - j == 1 || m - j == -1)))
@@ -725,7 +787,7 @@ namespace ChessGame
                                             {
                                                 if (chessBoard[k, y].isFugure)
                                                 {
-                                                    f = false;
+                                                    f = false;  
                                                 }
                                             }
                                             if (f)

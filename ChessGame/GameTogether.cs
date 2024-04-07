@@ -449,6 +449,7 @@ namespace ChessGame
                         if (chessBoard[i, j].flag == true)
                         {
                             Brush col = (i + j) % 2 != 0 ? Brushes.DarkOliveGreen : Brushes.Wheat;
+                            Brush revcol = (i + j) % 2 != 0 ? Brushes.Wheat : Brushes.DarkOliveGreen;
                             g.FillRectangle(col, chessBoard[i, j].rect);
                             g.DrawRectangle(blackPen, chessBoard[i, j].rect);
                             if (chessBoard[i, j].fig.data == 1 && chessBoard[i, j].fig.col == 'b') // BLACK
@@ -531,7 +532,7 @@ namespace ChessGame
                                     if ((e.Y >= chessBoard[k, m].rect.Location.Y + 1) &&
                                     (e.Y <= (chessBoard[k, m].rect.Location.Y + size)) &&
                                     (e.X >= chessBoard[k, m].rect.Location.X + 1) &&
-                                    (e.X <= (chessBoard[k, m].rect.Location.X + size)) && chessBoard[k, m].isFugure == false)
+                                    (e.X <= (chessBoard[k, m].rect.Location.X + size)) /*&& chessBoard[k, m].isFugure == false*/)
                                     {
                                         if (chessBoard[i, j].fig.data == 1 && chessBoard[i, j].fig.col == 'b' && k - i == 0 && m - j > 0 && m - j <= 2 && chessBoard[i, j].fig.check_for_pawn == false)
                                         {
@@ -615,7 +616,7 @@ namespace ChessGame
                                             bool f = true;
                                             if (m > j && k > i)
                                             {
-                                                for (int x = Math.Abs(m - j); x > 0; x--)
+                                                for (int x = Math.Abs(m - j - 1); x > 0; x--)
                                                 {
                                                     if (chessBoard[i + x, j + x].isFugure == true)
                                                         f = false;
@@ -623,7 +624,7 @@ namespace ChessGame
                                             }
                                             if (m > j && k < i)
                                             {
-                                                for (int x = Math.Abs(m - j); x > 0; x--)
+                                                for (int x = Math.Abs(m - j - 1); x > 0; x--)
                                                 {
                                                     if (chessBoard[i - x, j + x].isFugure == true)
                                                         f = false;
@@ -631,7 +632,7 @@ namespace ChessGame
                                             }
                                             if (m < j && k > i)
                                             {
-                                                for (int x = Math.Abs(m - j); x > 0; x--)
+                                                for (int x = Math.Abs(m - j + 1); x > 0; x--)
                                                 {
                                                     if (chessBoard[i + x, j - x].isFugure == true)
                                                         f = false;
@@ -639,7 +640,7 @@ namespace ChessGame
                                             }
                                             if (m < j && k < i)
                                             {
-                                                for (int x = Math.Abs(m - j); x > 0; x--)
+                                                for (int x = Math.Abs(m - j + 1); x > 0; x--)
                                                 {
                                                     if (chessBoard[i - x, j - x].isFugure == true)
                                                         f = false;
@@ -647,16 +648,39 @@ namespace ChessGame
                                             }
                                             if (f)
                                             {
-                                                g.DrawImage(Properties.Resources.bishopB, chessBoard[k, m].rect.X + 8, chessBoard[k, m].rect.Y + 8);
-                                                chessBoard[k, m].fig = new Figure(3, i, j, 'b');
-                                                chessBoard[i, j].fig.resetAll();
-                                                g.FillRectangle(col, chessBoard[i, j].rect);
-                                                g.DrawRectangle(blackPen, chessBoard[i, j].rect);
-                                                //player.SoundLocation = @strCoreData + "\\sounds\\move.wav";
-                                                //player.Play();
-                                                chessBoard[i, j].isFugure = false;
-                                                isClicked = false;
-                                                chessBoard[k, m].isFugure = true;
+                                                if (chessBoard[k, m].isFugure == true)
+                                                {
+                                                    if (chessBoard[k, m].fig.col == 'w')
+                                                    {
+                                                        chessBoard[k, m].fig.resetAll();
+                                                        chessBoard[k, m].fig = new Figure(3, i, j, 'b');
+                                                        g.FillRectangle(col, chessBoard[k, m].rect);
+                                                        g.DrawRectangle(blackPen, chessBoard[k, m].rect);
+                                                        g.DrawImage(Properties.Resources.bishopB, chessBoard[k, m].rect.X + 8, chessBoard[k, m].rect.Y + 8);
+                                                        chessBoard[k, m].fig = new Figure(3, i, j, 'b');
+                                                        chessBoard[i, j].fig.resetAll();
+                                                        g.FillRectangle(col, chessBoard[i, j].rect);
+                                                        g.DrawRectangle(blackPen, chessBoard[i, j].rect);
+                                                        //player.SoundLocation = @strCoreData + "\\sounds\\move.wav";
+                                                        //player.Play();
+                                                        chessBoard[i, j].isFugure = false;
+                                                        isClicked = false;
+                                                        chessBoard[k, m].isFugure = true;
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    g.DrawImage(Properties.Resources.bishopB, chessBoard[k, m].rect.X + 8, chessBoard[k, m].rect.Y + 8);
+                                                    chessBoard[k, m].fig = new Figure(3, i, j, 'b');
+                                                    chessBoard[i, j].fig.resetAll();
+                                                    g.FillRectangle(col, chessBoard[i, j].rect);
+                                                    g.DrawRectangle(blackPen, chessBoard[i, j].rect);
+                                                    //player.SoundLocation = @strCoreData + "\\sounds\\move.wav";
+                                                    //player.Play();
+                                                    chessBoard[i, j].isFugure = false;
+                                                    isClicked = false;
+                                                    chessBoard[k, m].isFugure = true;
+                                                }
                                             }
                                             else
                                             {
@@ -668,16 +692,10 @@ namespace ChessGame
                                         if (chessBoard[i, j].fig.data == 4 && chessBoard[i, j].fig.col == 'b' && ((k == i && m != j) || (m == j && k != i)))
                                         {
                                             bool f = true;
-                                            if (k == i && m != j)
+                                            if (k == i && m != j && m > j)
                                             {
-                                                for (int y = m; y < j; y++)
-                                                {
-                                                    if (chessBoard[k, y].isFugure)
-                                                    {
-                                                        f = false;
-                                                    }
-                                                }
-                                                for (int y = m; y > j; y--)
+
+                                                for (int y = m - 1; y > j; y--)
                                                 {
                                                     if (chessBoard[k, y].isFugure)
                                                     {
@@ -685,16 +703,30 @@ namespace ChessGame
                                                     }
                                                 }
                                             }
-                                            if (m == j && k != i)
+                                            if (k == i && m != j && m > j)
                                             {
-                                                for (int y = k; y < i; y++)
+                                                for (int y = m + 1; y < j; y++)
+                                                {
+                                                    if (chessBoard[k, y].isFugure)
+                                                    {
+                                                        f = false;
+                                                    }
+                                                }
+                                            }
+                                            if (m == j && k != i && k > i)
+                                            {
+
+                                                for (int y = k - 1; y > i; y--)
                                                 {
                                                     if (chessBoard[y, m].isFugure)
                                                     {
                                                         f = false;
                                                     }
                                                 }
-                                                for (int y = k; y > i; y--)
+                                            }
+                                            if (m == j && k != i && k < i)
+                                            {
+                                                for (int y = k + 1; y < i; y++)
                                                 {
                                                     if (chessBoard[y, m].isFugure)
                                                     {
@@ -705,16 +737,39 @@ namespace ChessGame
 
                                             if (f)
                                             {
-                                            g.DrawImage(Properties.Resources.rookB, chessBoard[k, m].rect.X + 10, chessBoard[k, m].rect.Y + 12);
-                                            chessBoard[k, m].fig = new Figure(4, i, j, 'b');
-                                            chessBoard[i, j].fig.resetAll();
-                                            g.FillRectangle(col, chessBoard[i, j].rect);
-                                            g.DrawRectangle(blackPen, chessBoard[i, j].rect);
-                                            //player.SoundLocation = @strCoreData + "\\sounds\\move.wav";
-                                            //player.Play();
-                                            chessBoard[i, j].isFugure = false;
-                                            isClicked = false;
-                                            chessBoard[k, m].isFugure = true;
+                                                if (chessBoard[k, m].isFugure == true)
+                                                {
+                                                    if (chessBoard[k, m].fig.col == 'w')
+                                                    {
+                                                        chessBoard[k, m].fig.resetAll();
+                                                        chessBoard[k, m].fig = new Figure(4, i, j, 'b');
+                                                        g.FillRectangle(revcol, chessBoard[k, m].rect);
+                                                        g.DrawRectangle(blackPen, chessBoard[k, m].rect);
+                                                        g.DrawImage(Properties.Resources.rookB, chessBoard[k, m].rect.X + 10, chessBoard[k, m].rect.Y + 12);
+                                                        chessBoard[k, m].fig = new Figure(4, i, j, 'b');
+                                                        chessBoard[i, j].fig.resetAll();
+                                                        g.FillRectangle(col, chessBoard[i, j].rect);
+                                                        g.DrawRectangle(blackPen, chessBoard[i, j].rect);
+                                                        //player.SoundLocation = @strCoreData + "\\sounds\\move.wav";
+                                                        //player.Play();
+                                                        chessBoard[i, j].isFugure = false;
+                                                        isClicked = false;
+                                                        chessBoard[k, m].isFugure = true;
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    g.DrawImage(Properties.Resources.rookB, chessBoard[k, m].rect.X + 10, chessBoard[k, m].rect.Y + 12);
+                                                    chessBoard[k, m].fig = new Figure(4, i, j, 'b');
+                                                    chessBoard[i, j].fig.resetAll();
+                                                    g.FillRectangle(col, chessBoard[i, j].rect);
+                                                    g.DrawRectangle(blackPen, chessBoard[i, j].rect);
+                                                    //player.SoundLocation = @strCoreData + "\\sounds\\move.wav";
+                                                    //player.Play();
+                                                    chessBoard[i, j].isFugure = false;
+                                                    isClicked = false;
+                                                    chessBoard[k, m].isFugure = true;
+                                                }
                                             }
                                             else
                                             {
@@ -759,16 +814,10 @@ namespace ChessGame
                                                         f = false;
                                                 }
                                             }
-                                            if (k == i && m != j)
+                                            if (k == i && m != j && m > j)
                                             {
-                                                for (int y = m; y < j; y++)
-                                                {
-                                                    if (chessBoard[k, y].isFugure)
-                                                    {
-                                                        f = false;
-                                                    }
-                                                }
-                                                for (int y = m; y > j; y--)
+
+                                                for (int y = m - 1; y > j; y--)
                                                 {
                                                     if (chessBoard[k, y].isFugure)
                                                     {
@@ -776,16 +825,30 @@ namespace ChessGame
                                                     }
                                                 }
                                             }
-                                            if (m == j && k != i)
+                                            if (k == i && m != j && m > j)
                                             {
-                                                for (int y = k; y < i; y++)
+                                                for (int y = m + 1; y < j; y++)
+                                                {
+                                                    if (chessBoard[k, y].isFugure)
+                                                    {
+                                                        f = false;
+                                                    }
+                                                }
+                                            }
+                                            if (m == j && k != i && k > i)
+                                            {
+
+                                                for (int y = k - 1; y > i; y--)
                                                 {
                                                     if (chessBoard[y, m].isFugure)
                                                     {
                                                         f = false;
                                                     }
                                                 }
-                                                for (int y = k; y > i; y--)
+                                            }
+                                            if (m == j && k != i && k < i)
+                                            {
+                                                for (int y = k + 1; y < i; y++)
                                                 {
                                                     if (chessBoard[y, m].isFugure)
                                                     {
@@ -963,16 +1026,10 @@ namespace ChessGame
                                         if (chessBoard[i, j].fig.data == 4 && chessBoard[i, j].fig.col == 'w' && ((k == i && m != j) || (m == j && k != i)))
                                         {
                                             bool f = true;
-                                            if (k == i && m != j)
+                                            if (k == i && m != j && m > j)
                                             {
-                                                for (int y = m; y < j; y++)
-                                                {
-                                                    if (chessBoard[k, y].isFugure)
-                                                    {
-                                                        f = false;
-                                                    }
-                                                }
-                                                for (int y = m; y > j; y--)
+
+                                                for (int y = m - 1; y > j; y--)
                                                 {
                                                     if (chessBoard[k, y].isFugure)
                                                     {
@@ -980,16 +1037,30 @@ namespace ChessGame
                                                     }
                                                 }
                                             }
-                                            if (m == j && k != i)
+                                            if (k == i && m != j && m > j)
                                             {
-                                                for (int y = k; y < i; y++)
+                                                for (int y = m + 1; y < j; y++)
+                                                {
+                                                    if (chessBoard[k, y].isFugure)
+                                                    {
+                                                        f = false;
+                                                    }
+                                                }
+                                            }
+                                            if (m == j && k != i && k > i)
+                                            {
+
+                                                for (int y = k - 1; y > i; y--)
                                                 {
                                                     if (chessBoard[y, m].isFugure)
                                                     {
                                                         f = false;
                                                     }
                                                 }
-                                                for (int y = k; y > i; y--)
+                                            }
+                                            if (m == j && k != i && k < i)
+                                            {
+                                                for (int y = k + 1; y < i; y++)
                                                 {
                                                     if (chessBoard[y, m].isFugure)
                                                     {
@@ -999,16 +1070,38 @@ namespace ChessGame
                                             }
                                             if (f)
                                             {
-                                                g.DrawImage(Properties.Resources.rookW, chessBoard[k, m].rect.X + 10, chessBoard[k, m].rect.Y + 12);
-                                                chessBoard[k, m].fig = new Figure(4, i, j, 'w');
-                                                chessBoard[i, j].fig.resetAll();
-                                                g.FillRectangle(col, chessBoard[i, j].rect);
-                                                g.DrawRectangle(blackPen, chessBoard[i, j].rect);
-                                                //player.SoundLocation = @strCoreData + "\\sounds\\move.wav";
-                                                //player.Play();
-                                                chessBoard[i, j].isFugure = false;
-                                                isClicked = false;
-                                                chessBoard[k, m].isFugure = true;
+                                                if (chessBoard[k, m].isFugure == true)
+                                                {
+                                                    if (chessBoard[k, m].fig.col == 'b')
+                                                    {
+                                                        chessBoard[k, m].fig.resetAll();
+                                                        chessBoard[k, m].fig = new Figure(4, i, j, 'w');
+                                                        g.FillRectangle(revcol, chessBoard[k, m].rect);
+                                                        g.DrawRectangle(blackPen, chessBoard[k, m].rect);
+                                                        g.DrawImage(Properties.Resources.rookW, chessBoard[k, m].rect.X + 10, chessBoard[k, m].rect.Y + 12);
+                                                        chessBoard[i, j].fig.resetAll();
+                                                        g.FillRectangle(col, chessBoard[i, j].rect);
+                                                        g.DrawRectangle(blackPen, chessBoard[i, j].rect);
+                                                        //player.SoundLocation = @strCoreData + "\\sounds\\move.wav";
+                                                        //player.Play();
+                                                        chessBoard[i, j].isFugure = false;
+                                                        isClicked = false;
+                                                        chessBoard[k, m].isFugure = true;
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    g.DrawImage(Properties.Resources.rookW, chessBoard[k, m].rect.X + 10, chessBoard[k, m].rect.Y + 12);
+                                                    chessBoard[k, m].fig = new Figure(4, i, j, 'w');
+                                                    chessBoard[i, j].fig.resetAll();
+                                                    g.FillRectangle(col, chessBoard[i, j].rect);
+                                                    g.DrawRectangle(blackPen, chessBoard[i, j].rect);
+                                                    //player.SoundLocation = @strCoreData + "\\sounds\\move.wav";
+                                                    //player.Play();
+                                                    chessBoard[i, j].isFugure = false;
+                                                    isClicked = false;
+                                                    chessBoard[k, m].isFugure = true;
+                                                }
                                             }
                                             else
                                             {
@@ -1052,16 +1145,10 @@ namespace ChessGame
                                                         f = false;
                                                 }
                                             }
-                                            if (k == i && m != j)
+                                            if (k == i && m != j && m > j)
                                             {
-                                                for (int y = m; y < j; y++)
-                                                {
-                                                    if (chessBoard[k, y].isFugure)
-                                                    {
-                                                        f = false;
-                                                    }
-                                                }
-                                                for (int y = m; y > j; y--)
+
+                                                for (int y = m - 1; y > j; y--)
                                                 {
                                                     if (chessBoard[k, y].isFugure)
                                                     {
@@ -1069,16 +1156,30 @@ namespace ChessGame
                                                     }
                                                 }
                                             }
-                                            if (m == j && k != i)
+                                            if (k == i && m != j && m > j)
                                             {
-                                                for (int y = k; y < i; y++)
+                                                for (int y = m + 1; y < j; y++)
+                                                {
+                                                    if (chessBoard[k, y].isFugure)
+                                                    {
+                                                        f = false;
+                                                    }
+                                                }
+                                            }
+                                            if (m == j && k != i && k > i)
+                                            {
+
+                                                for (int y = k - 1; y > i; y--)
                                                 {
                                                     if (chessBoard[y, m].isFugure)
                                                     {
                                                         f = false;
                                                     }
                                                 }
-                                                for (int y = k; y > i; y--)
+                                            }
+                                            if (m == j && k != i && k < i)
+                                            {
+                                                for (int y = k + 1; y < i; y++)
                                                 {
                                                     if (chessBoard[y, m].isFugure)
                                                     {

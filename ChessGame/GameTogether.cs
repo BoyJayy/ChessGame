@@ -529,6 +529,7 @@ namespace ChessGame
                             {
                                 for (int m = 0; m < n; m++)
                                 {
+                                    Brush col2 = (k + m) % 2 != 0 ? Brushes.DarkOliveGreen : Brushes.Wheat;
                                     if ((e.Y >= chessBoard[k, m].rect.Location.Y + 1) &&
                                     (e.Y <= (chessBoard[k, m].rect.Location.Y + size)) &&
                                     (e.X >= chessBoard[k, m].rect.Location.X + 1) &&
@@ -600,16 +601,38 @@ namespace ChessGame
                                             ((k - i == 1 || k - i == -1) && (m - j == 2 || m - j == -2) ||
                                             (k - i == 2 || k - i == -2) && (m - j == 1 || m - j == -1)))
                                         {
-                                            g.DrawImage(Properties.Resources.knightB, chessBoard[k, m].rect.X + 7, chessBoard[k, m].rect.Y + 10);
-                                            chessBoard[k, m].fig = new Figure(2, i, j, 'b');
-                                            chessBoard[i, j].fig.resetAll();
-                                            g.FillRectangle(col, chessBoard[i, j].rect);
-                                            g.DrawRectangle(blackPen, chessBoard[i, j].rect);
-                                            //player.SoundLocation = @strCoreData + "\\sounds\\move.wav";
-                                            //player.Play();
-                                            chessBoard[i, j].isFugure = false;
-                                            isClicked = false;
-                                            chessBoard[k, m].isFugure = true;
+                                            if (chessBoard[k, m].isFugure == true)
+                                            {
+                                                if (chessBoard[k, m].fig.col == 'w')
+                                                {
+                                                    chessBoard[k, m].fig.resetAll();
+                                                    chessBoard[k, m].fig = new Figure(2, i, j, 'b');
+                                                    g.FillRectangle(col2, chessBoard[k, m].rect);
+                                                    g.DrawRectangle(blackPen, chessBoard[k, m].rect);
+                                                    g.DrawImage(Properties.Resources.knightB, chessBoard[k, m].rect.X + 8, chessBoard[k, m].rect.Y + 12);
+                                                    chessBoard[i, j].fig.resetAll();
+                                                    g.FillRectangle(col, chessBoard[i, j].rect);
+                                                    g.DrawRectangle(blackPen, chessBoard[i, j].rect);
+                                                    //player.SoundLocation = @strCoreData + "\\sounds\\move.wav";
+                                                    //player.Play();
+                                                    chessBoard[i, j].isFugure = false;
+                                                    isClicked = false;
+                                                    chessBoard[k, m].isFugure = true;
+                                                }
+                                            }
+                                            else
+                                            {
+                                                g.DrawImage(Properties.Resources.knightB, chessBoard[k, m].rect.X + 8, chessBoard[k, m].rect.Y + 12);
+                                                chessBoard[k, m].fig = new Figure(2, i, j, 'b');
+                                                chessBoard[i, j].fig.resetAll();
+                                                g.FillRectangle(col, chessBoard[i, j].rect);
+                                                g.DrawRectangle(blackPen, chessBoard[i, j].rect);
+                                                //player.SoundLocation = @strCoreData + "\\sounds\\move.wav";
+                                                //player.Play();
+                                                chessBoard[i, j].isFugure = false;
+                                                isClicked = false;
+                                                chessBoard[k, m].isFugure = true;
+                                            }
                                         }
                                         if (chessBoard[i, j].fig.data == 3 && chessBoard[i, j].fig.col == 'b' && Math.Abs(k - i) == Math.Abs(m - j))
                                         {
@@ -654,7 +677,7 @@ namespace ChessGame
                                                     {
                                                         chessBoard[k, m].fig.resetAll();
                                                         chessBoard[k, m].fig = new Figure(3, i, j, 'b');
-                                                        g.FillRectangle(col, chessBoard[k, m].rect);
+                                                        g.FillRectangle(col2, chessBoard[k, m].rect);
                                                         g.DrawRectangle(blackPen, chessBoard[k, m].rect);
                                                         g.DrawImage(Properties.Resources.bishopB, chessBoard[k, m].rect.X + 8, chessBoard[k, m].rect.Y + 8);
                                                         chessBoard[k, m].fig = new Figure(3, i, j, 'b');
@@ -743,7 +766,7 @@ namespace ChessGame
                                                     {
                                                         chessBoard[k, m].fig.resetAll();
                                                         chessBoard[k, m].fig = new Figure(4, i, j, 'b');
-                                                        g.FillRectangle(revcol, chessBoard[k, m].rect);
+                                                        g.FillRectangle(col2, chessBoard[k, m].rect);
                                                         g.DrawRectangle(blackPen, chessBoard[k, m].rect);
                                                         g.DrawImage(Properties.Resources.rookB, chessBoard[k, m].rect.X + 10, chessBoard[k, m].rect.Y + 12);
                                                         chessBoard[k, m].fig = new Figure(4, i, j, 'b');
@@ -784,7 +807,7 @@ namespace ChessGame
                                             bool f = true;
                                             if (m > j && k > i)
                                             {
-                                                for (int x = Math.Abs(m - j); x > 0; x--)
+                                                for (int x = Math.Abs(m - j - 1); x > 0; x--)
                                                 {
                                                     if (chessBoard[i + x, j + x].isFugure == true)
                                                         f = false;
@@ -792,7 +815,7 @@ namespace ChessGame
                                             }
                                             if (m > j && k < i)
                                             {
-                                                for (int x = Math.Abs(m - j); x > 0; x--)
+                                                for (int x = Math.Abs(m - j - 1); x > 0; x--)
                                                 {
                                                     if (chessBoard[i - x, j + x].isFugure == true)
                                                         f = false;
@@ -800,7 +823,7 @@ namespace ChessGame
                                             }
                                             if (m < j && k > i)
                                             {
-                                                for (int x = Math.Abs(m - j); x > 0; x--)
+                                                for (int x = Math.Abs(m - j + 1); x > 0; x--)
                                                 {
                                                     if (chessBoard[i + x, j - x].isFugure == true)
                                                         f = false;
@@ -808,7 +831,7 @@ namespace ChessGame
                                             }
                                             if (m < j && k < i)
                                             {
-                                                for (int x = Math.Abs(m - j); x > 0; x--)
+                                                for (int x = Math.Abs(m - j + 1); x > 0; x--)
                                                 {
                                                     if (chessBoard[i - x, j - x].isFugure == true)
                                                         f = false;
@@ -858,16 +881,38 @@ namespace ChessGame
                                             }
                                             if (f)
                                             {
-                                                g.DrawImage(Properties.Resources.queenB, chessBoard[k, m].rect.X + 5, chessBoard[k, m].rect.Y + 8);
-                                                chessBoard[k, m].fig = new Figure(5, i, j, 'b');
-                                                chessBoard[i, j].fig.resetAll();
-                                                g.FillRectangle(col, chessBoard[i, j].rect);
-                                                g.DrawRectangle(blackPen, chessBoard[i, j].rect);
-                                                //player.SoundLocation = @strCoreData + "\\sounds\\move.wav";
-                                                //player.Play();
-                                                chessBoard[i, j].isFugure = false;
-                                                isClicked = false;
-                                                chessBoard[k, m].isFugure = true;
+                                                if (chessBoard[k, m].isFugure == true)
+                                                {
+                                                    if (chessBoard[k, m].fig.col == 'w')
+                                                    {
+                                                        chessBoard[k, m].fig.resetAll();
+                                                        chessBoard[k, m].fig = new Figure(5, i, j, 'b');
+                                                        g.FillRectangle(col2, chessBoard[k, m].rect);
+                                                        g.DrawRectangle(blackPen, chessBoard[k, m].rect);
+                                                        g.DrawImage(Properties.Resources.queenB, chessBoard[k, m].rect.X + 5, chessBoard[k, m].rect.Y + 8);
+                                                        chessBoard[i, j].fig.resetAll();
+                                                        g.FillRectangle(col, chessBoard[i, j].rect);
+                                                        g.DrawRectangle(blackPen, chessBoard[i, j].rect);
+                                                        //player.SoundLocation = @strCoreData + "\\sounds\\move.wav";
+                                                        //player.Play();
+                                                        chessBoard[i, j].isFugure = false;
+                                                        isClicked = false;
+                                                        chessBoard[k, m].isFugure = true;
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    g.DrawImage(Properties.Resources.queenB, chessBoard[k, m].rect.X + 5, chessBoard[k, m].rect.Y + 8);
+                                                    chessBoard[k, m].fig = new Figure(5, i, j, 'b');
+                                                    chessBoard[i, j].fig.resetAll();
+                                                    g.FillRectangle(col, chessBoard[i, j].rect);
+                                                    g.DrawRectangle(blackPen, chessBoard[i, j].rect);
+                                                    //player.SoundLocation = @strCoreData + "\\sounds\\move.wav";
+                                                    //player.Play();
+                                                    chessBoard[i, j].isFugure = false;
+                                                    isClicked = false;
+                                                    chessBoard[k, m].isFugure = true;
+                                                }
                                             }
                                             else
                                             {
@@ -957,23 +1002,45 @@ namespace ChessGame
                                             ((k - i == 1 || k - i == -1) && (m - j == 2 || m - j == -2) ||
                                             (k - i == 2 || k - i == -2) && (m - j == 1 || m - j == -1)))
                                         {
-                                            g.DrawImage(Properties.Resources.knightW, chessBoard[k, m].rect.X + 8, chessBoard[k, m].rect.Y + 12);
-                                            chessBoard[k, m].fig = new Figure(2, i, j, 'w');
-                                            chessBoard[i, j].fig.resetAll();
-                                            g.FillRectangle(col, chessBoard[i, j].rect);
-                                            g.DrawRectangle(blackPen, chessBoard[i, j].rect);
-                                            //player.SoundLocation = @strCoreData + "\\sounds\\move.wav";
-                                            //player.Play();
-                                            chessBoard[i, j].isFugure = false;
-                                            isClicked = false;
-                                            chessBoard[k, m].isFugure = true;
+                                            if (chessBoard[k, m].isFugure == true)
+                                            {
+                                                if (chessBoard[k, m].fig.col == 'b')
+                                                {
+                                                    chessBoard[k, m].fig.resetAll();
+                                                    chessBoard[k, m].fig = new Figure(2, i, j, 'w');
+                                                    g.FillRectangle(col2, chessBoard[k, m].rect);
+                                                    g.DrawRectangle(blackPen, chessBoard[k, m].rect);
+                                                    g.DrawImage(Properties.Resources.knightW, chessBoard[k, m].rect.X + 8, chessBoard[k, m].rect.Y + 12);
+                                                    chessBoard[i, j].fig.resetAll();
+                                                    g.FillRectangle(col, chessBoard[i, j].rect);
+                                                    g.DrawRectangle(blackPen, chessBoard[i, j].rect);
+                                                    //player.SoundLocation = @strCoreData + "\\sounds\\move.wav";
+                                                    //player.Play();
+                                                    chessBoard[i, j].isFugure = false;
+                                                    isClicked = false;
+                                                    chessBoard[k, m].isFugure = true;
+                                                }
+                                            }
+                                            else
+                                            {
+                                                g.DrawImage(Properties.Resources.knightW, chessBoard[k, m].rect.X + 8, chessBoard[k, m].rect.Y + 12);
+                                                chessBoard[k, m].fig = new Figure(2, i, j, 'w');
+                                                chessBoard[i, j].fig.resetAll();
+                                                g.FillRectangle(col, chessBoard[i, j].rect);
+                                                g.DrawRectangle(blackPen, chessBoard[i, j].rect);
+                                                //player.SoundLocation = @strCoreData + "\\sounds\\move.wav";
+                                                //player.Play();
+                                                chessBoard[i, j].isFugure = false;
+                                                isClicked = false;
+                                                chessBoard[k, m].isFugure = true;
+                                            }
                                         }
                                         if (chessBoard[i, j].fig.data == 3 && chessBoard[i, j].fig.col == 'w' && Math.Abs(k - i) == Math.Abs(m - j))
                                         {
                                             bool f = true;
                                             if (m > j && k > i)
                                             {
-                                                for (int x = Math.Abs(m - j); x > 0; x--)
+                                                for (int x = Math.Abs(m - j - 1); x > 0; x--)
                                                 {
                                                     if (chessBoard[i + x, j + x].isFugure == true)
                                                         f = false;
@@ -981,7 +1048,7 @@ namespace ChessGame
                                             }
                                             if (m > j && k < i)
                                             {
-                                                for (int x = Math.Abs(m - j); x > 0; x--)
+                                                for (int x = Math.Abs(m - j - 1); x > 0; x--)
                                                 {
                                                     if (chessBoard[i - x, j + x].isFugure == true)
                                                         f = false;
@@ -989,7 +1056,7 @@ namespace ChessGame
                                             }
                                             if (m < j && k > i)
                                             {
-                                                for (int x = Math.Abs(m - j); x > 0; x--)
+                                                for (int x = Math.Abs(m - j + 1); x > 0; x--)
                                                 {
                                                     if (chessBoard[i + x, j - x].isFugure == true)
                                                         f = false;
@@ -997,7 +1064,7 @@ namespace ChessGame
                                             }
                                             if (m < j && k < i)
                                             {
-                                                for (int x = Math.Abs(m - j); x > 0; x--)
+                                                for (int x = Math.Abs(m - j + 1); x > 0; x--)
                                                 {
                                                     if (chessBoard[i - x, j - x].isFugure == true)
                                                         f = false;
@@ -1005,6 +1072,8 @@ namespace ChessGame
                                             }
                                             if (f)
                                             {
+                                                g.FillRectangle(col2, chessBoard[k, m].rect);
+                                                g.DrawRectangle(blackPen, chessBoard[k, m].rect);
                                                 g.DrawImage(Properties.Resources.bishopW, chessBoard[k, m].rect.X + 8, chessBoard[k, m].rect.Y + 8);
                                                 chessBoard[k, m].fig = new Figure(3, i, j, 'w');
                                                 chessBoard[i, j].fig.resetAll();
@@ -1076,7 +1145,7 @@ namespace ChessGame
                                                     {
                                                         chessBoard[k, m].fig.resetAll();
                                                         chessBoard[k, m].fig = new Figure(4, i, j, 'w');
-                                                        g.FillRectangle(revcol, chessBoard[k, m].rect);
+                                                        g.FillRectangle(col2, chessBoard[k, m].rect);
                                                         g.DrawRectangle(blackPen, chessBoard[k, m].rect);
                                                         g.DrawImage(Properties.Resources.rookW, chessBoard[k, m].rect.X + 10, chessBoard[k, m].rect.Y + 12);
                                                         chessBoard[i, j].fig.resetAll();
@@ -1115,7 +1184,7 @@ namespace ChessGame
                                             bool f = true;
                                             if (m > j && k > i)
                                             {
-                                                for (int x = Math.Abs(m - j); x > 0; x--)
+                                                for (int x = Math.Abs(m - j - 1); x > 0; x--)
                                                 {
                                                     if (chessBoard[i + x, j + x].isFugure == true)
                                                         f = false;
@@ -1123,7 +1192,7 @@ namespace ChessGame
                                             }
                                             if (m > j && k < i)
                                             {
-                                                for (int x = Math.Abs(m - j); x > 0; x--)
+                                                for (int x = Math.Abs(m - j - 1); x > 0; x--)
                                                 {
                                                     if (chessBoard[i - x, j + x].isFugure == true)
                                                         f = false;
@@ -1131,7 +1200,7 @@ namespace ChessGame
                                             }
                                             if (m < j && k > i)
                                             {
-                                                for (int x = Math.Abs(m - j); x > 0; x--)
+                                                for (int x = Math.Abs(m - j + 1); x > 0; x--)
                                                 {
                                                     if (chessBoard[i + x, j - x].isFugure == true)
                                                         f = false;
@@ -1139,7 +1208,7 @@ namespace ChessGame
                                             }
                                             if (m < j && k < i)
                                             {
-                                                for (int x = Math.Abs(m - j); x > 0; x--)
+                                                for (int x = Math.Abs(m - j + 1); x > 0; x--)
                                                 {
                                                     if (chessBoard[i - x, j - x].isFugure == true)
                                                         f = false;
@@ -1189,16 +1258,38 @@ namespace ChessGame
                                             }
                                             if (f)
                                             {
-                                                g.DrawImage(Properties.Resources.queenW, chessBoard[k, m].rect.X + 5, chessBoard[k, m].rect.Y + 8);
-                                                chessBoard[k, m].fig = new Figure(5, i, j, 'w');
-                                                chessBoard[i, j].fig.resetAll();
-                                                g.FillRectangle(col, chessBoard[i, j].rect);
-                                                g.DrawRectangle(blackPen, chessBoard[i, j].rect);
-                                                //player.SoundLocation = @strCoreData + "\\sounds\\move.wav";
-                                                //player.Play();
-                                                chessBoard[i, j].isFugure = false;
-                                                isClicked = false;
-                                                chessBoard[k, m].isFugure = true;
+                                                if (chessBoard[k, m].isFugure == true)
+                                                {
+                                                    if (chessBoard[k, m].fig.col == 'b')
+                                                    {
+                                                        chessBoard[k, m].fig.resetAll();
+                                                        chessBoard[k, m].fig = new Figure(5, i, j, 'w');
+                                                        g.FillRectangle(col2, chessBoard[k, m].rect);
+                                                        g.DrawRectangle(blackPen, chessBoard[k, m].rect);
+                                                        g.DrawImage(Properties.Resources.queenW, chessBoard[k,m].rect.X + 5, chessBoard[k, m].rect.Y + 8);
+                                                        chessBoard[i, j].fig.resetAll();
+                                                        g.FillRectangle(col, chessBoard[i, j].rect);
+                                                        g.DrawRectangle(blackPen, chessBoard[i, j].rect);
+                                                        //player.SoundLocation = @strCoreData + "\\sounds\\move.wav";
+                                                        //player.Play();
+                                                        chessBoard[i, j].isFugure = false;
+                                                        isClicked = false;
+                                                        chessBoard[k, m].isFugure = true;
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    g.DrawImage(Properties.Resources.queenW, chessBoard[k, m].rect.X + 5, chessBoard[k, m].rect.Y + 8);
+                                                    chessBoard[k, m].fig = new Figure(5, i, j, 'w');
+                                                    chessBoard[i, j].fig.resetAll();
+                                                    g.FillRectangle(col, chessBoard[i, j].rect);
+                                                    g.DrawRectangle(blackPen, chessBoard[i, j].rect);
+                                                    //player.SoundLocation = @strCoreData + "\\sounds\\move.wav";
+                                                    //player.Play();
+                                                    chessBoard[i, j].isFugure = false;
+                                                    isClicked = false;
+                                                    chessBoard[k, m].isFugure = true;
+                                                }
                                             }
                                             else
                                             {

@@ -1,5 +1,5 @@
-﻿using System.Drawing;
-using System;
+﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace ChessGame
@@ -20,6 +20,7 @@ namespace ChessGame
             public bool check_for_pawn = true;
             public Image pic;
             public char col;
+
             private void setcol(char c)
             {
                 col = c;
@@ -45,6 +46,7 @@ namespace ChessGame
                 pic = null;
                 col = '0';
             }
+
             public Figure(int tdata, int pos_x, int pos_y, char c)
             {
                 setData(tdata);
@@ -118,8 +120,6 @@ namespace ChessGame
         private System.Media.SoundPlayer player = new System.Media.SoundPlayer();
 
         public static bool moveTurn = true;
-
-
 
         //private static Player Main = new Player(Program.ST.whiteCheck.Checked);
 
@@ -200,7 +200,6 @@ namespace ChessGame
                         chessBoard[i, j].fig = new Figure(4, i, j, 'w');
                     }
 
-
                     if (i == 0 && j == 0) // BLACK start pos
                     {
                         g.DrawImage(Properties.Resources.rookB, chessBoard[i, j].rect.X + 10, chessBoard[i, j].rect.Y + 12);
@@ -260,6 +259,7 @@ namespace ChessGame
         private Color defCol;
         private bool isClicked = false;
         private Graphics f;
+
         private void Form1_MouseDown(object sender, MouseEventArgs e)
         {
             g = ActiveForm.CreateGraphics();
@@ -274,7 +274,6 @@ namespace ChessGame
                         (e.X >= chessBoard[i, j].rect.Location.X + 1) &&
                         (e.X <= (chessBoard[i, j].rect.Location.X + size)) && chessBoard[i, j].isFugure == true)
                         {
-
                             defCol = chessBoard[i, j].color;
                             g.FillRectangle(lightYellowBrush, chessBoard[i, j].rect);
                             g.DrawRectangle(blackPen, chessBoard[i, j].rect);
@@ -540,7 +539,7 @@ namespace ChessGame
                                             bool f = true;
                                             for (int y = m; y > j; y--)
                                             {
-                                                if (chessBoard[k,y].isFugure)
+                                                if (chessBoard[k, y].isFugure)
                                                 {
                                                     f = false;
                                                 }
@@ -717,7 +716,6 @@ namespace ChessGame
                                             bool f = true;
                                             if (k == i && m != j && m > j)
                                             {
-
                                                 for (int y = m - 1; y > j; y--)
                                                 {
                                                     if (chessBoard[k, y].isFugure)
@@ -738,7 +736,6 @@ namespace ChessGame
                                             }
                                             if (m == j && k != i && k > i)
                                             {
-
                                                 for (int y = k - 1; y > i; y--)
                                                 {
                                                     if (chessBoard[y, m].isFugure)
@@ -800,7 +797,6 @@ namespace ChessGame
                                                 g.DrawRectangle(blackPen, chessBoard[i, j].rect);
                                                 g.DrawImage(Properties.Resources.rookB, chessBoard[i, j].rect.X + 10, chessBoard[i, j].rect.Y + 12);
                                             }
-
                                         }
                                         if (chessBoard[i, j].fig.data == 5 && chessBoard[i, j].fig.col == 'b' && (((k == i && m != j) || (m == j && k != i)) || (Math.Abs(k - i) == Math.Abs(m - j))))
                                         {
@@ -839,7 +835,6 @@ namespace ChessGame
                                             }
                                             if (k == i && m != j && m > j)
                                             {
-
                                                 for (int y = m - 1; y > j; y--)
                                                 {
                                                     if (chessBoard[k, y].isFugure)
@@ -860,7 +855,6 @@ namespace ChessGame
                                             }
                                             if (m == j && k != i && k > i)
                                             {
-
                                                 for (int y = k - 1; y > i; y--)
                                                 {
                                                     if (chessBoard[y, m].isFugure)
@@ -920,7 +914,6 @@ namespace ChessGame
                                                 g.DrawRectangle(blackPen, chessBoard[i, j].rect);
                                                 g.DrawImage(Properties.Resources.queenB, chessBoard[i, j].rect.X + 5, chessBoard[i, j].rect.Y + 8);
                                             }
-
                                         }
                                         if (chessBoard[i, j].fig.data == 6 && chessBoard[i, j].fig.col == 'b' && Math.Abs(k - i) <= 1 && Math.Abs(m - j) <= 1)
                                         {
@@ -936,7 +929,7 @@ namespace ChessGame
                                             chessBoard[k, m].isFugure = true;
                                         }
 
-                                        if (chessBoard[i, j].fig.data == 1 && chessBoard[i, j].fig.col == 'w'&& k - i == 0 && m - j < 0 && m - j >= -2 && chessBoard[i, j].fig.check_for_pawn == false) // WHITE
+                                        if (chessBoard[i, j].fig.data == 1 && chessBoard[i, j].fig.col == 'w' && k - i == 0 && m - j < 0 && m - j >= -2 && chessBoard[i, j].fig.check_for_pawn == false) // WHITE
                                         {
                                             bool f = true;
                                             for (int y = m; y > j; y--)
@@ -1097,7 +1090,6 @@ namespace ChessGame
                                             bool f = true;
                                             if (k == i && m != j && m > j)
                                             {
-
                                                 for (int y = m - 1; y > j; y--)
                                                 {
                                                     if (chessBoard[k, y].isFugure)
@@ -1118,7 +1110,6 @@ namespace ChessGame
                                             }
                                             if (m == j && k != i && k > i)
                                             {
-
                                                 for (int y = k - 1; y > i; y--)
                                                 {
                                                     if (chessBoard[y, m].isFugure)
@@ -1216,7 +1207,6 @@ namespace ChessGame
                                             }
                                             if (k == i && m != j && m > j)
                                             {
-
                                                 for (int y = m - 1; y > j; y--)
                                                 {
                                                     if (chessBoard[k, y].isFugure)
@@ -1237,7 +1227,6 @@ namespace ChessGame
                                             }
                                             if (m == j && k != i && k > i)
                                             {
-
                                                 for (int y = k - 1; y > i; y--)
                                                 {
                                                     if (chessBoard[y, m].isFugure)
@@ -1266,7 +1255,7 @@ namespace ChessGame
                                                         chessBoard[k, m].fig = new Figure(5, i, j, 'w');
                                                         g.FillRectangle(col2, chessBoard[k, m].rect);
                                                         g.DrawRectangle(blackPen, chessBoard[k, m].rect);
-                                                        g.DrawImage(Properties.Resources.queenW, chessBoard[k,m].rect.X + 5, chessBoard[k, m].rect.Y + 8);
+                                                        g.DrawImage(Properties.Resources.queenW, chessBoard[k, m].rect.X + 5, chessBoard[k, m].rect.Y + 8);
                                                         chessBoard[i, j].fig.resetAll();
                                                         g.FillRectangle(col, chessBoard[i, j].rect);
                                                         g.DrawRectangle(blackPen, chessBoard[i, j].rect);

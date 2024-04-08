@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ChessGame
@@ -20,12 +13,12 @@ namespace ChessGame
 
         private void Start_Load(object sender, EventArgs e)
         {
-                //var f = new Game();
-                //if (f.ShowDialog(this) == DialogResult.OK)
-                //{
-                //    f.Dispose();
-                //}
-                //else Application.Exit();
+            //var f = new Game();
+            //if (f.ShowDialog(this) == DialogResult.OK)
+            //{
+            //    f.Dispose();
+            //}
+            //else Application.Exit();
         }
 
         private void button2_Click(object sender, EventArgs e)

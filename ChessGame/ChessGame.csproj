@@ -66,6 +66,12 @@
   <ItemGroup>
     <Compile Include="Board.cs" />
     <Compile Include="Figures.cs" />
+    <Compile Include="GameOverScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GameOverScreen.Designer.cs">
+      <DependentUpon>GameOverScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -86,6 +92,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GameOverScreen.resx">
+      <DependentUpon>GameOverScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GameTogether.resx">
       <DependentUpon>GameTogether.cs</DependentUpon>
     </EmbeddedResource>

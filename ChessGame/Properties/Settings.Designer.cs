@@ -49,7 +49,7 @@ namespace ChessGame.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1000, 1000")]
+        [global::System.Configuration.DefaultSettingValueAttribute("700, 420")]
         public global::System.Drawing.Point aaaa {
             get {
                 return ((global::System.Drawing.Point)(this["aaaa"]));

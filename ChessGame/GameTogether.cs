@@ -53,6 +53,8 @@ namespace ChessGame
 
         public static bool moveTurn = true;
 
+        GameOverScreen gmo = new GameOverScreen();
+        Start st = new Start();
         //private static Player Main = new Player(Program.ST.whiteCheck.Checked);
 
         private void getInfoFromStart()
@@ -195,7 +197,7 @@ namespace ChessGame
         private void Form1_MouseDown(object sender, MouseEventArgs e)
         {
             g = ActiveForm.CreateGraphics();
-            if (!isClicked) // если не нажато ни разу
+            if (!isClicked) // если не нажато ниразу
             {
                 for (int i = 0; i < n; i++)
                 {
@@ -206,79 +208,125 @@ namespace ChessGame
                         (e.X >= chessBoard[i, j].rect.Location.X + 1) &&
                         (e.X <= (chessBoard[i, j].rect.Location.X + size)) && chessBoard[i, j].isFugure == true)
                         {
-                            defCol = chessBoard[i, j].color;
-                            g.FillRectangle(lightYellowBrush, chessBoard[i, j].rect);
-                            g.DrawRectangle(blackPen, chessBoard[i, j].rect);
-                            chessBoard[i, j].color = Color.LightYellow;
-                            if (chessBoard[i, j].fig.data == 1 && chessBoard[i, j].fig.col == 'b') // BLACk
+
+                            if (chessBoard[i, j].fig.data == 1 && chessBoard[i, j].fig.col == 'b' && !moveTurn) // BLACk
                             {
+                                defCol = chessBoard[i, j].color;
+                                g.FillRectangle(lightYellowBrush, chessBoard[i, j].rect);
+                                g.DrawRectangle(blackPen, chessBoard[i, j].rect);
+                                chessBoard[i, j].color = Color.LightYellow;
                                 g.DrawImage(Properties.Resources.pawnB, chessBoard[i, j].rect.X + 15, chessBoard[i, j].rect.Y + 12);
                                 chessBoard[i, j].flag = true;
                                 isClicked = true;
                             }
-                            if (chessBoard[i, j].fig.data == 2 && chessBoard[i, j].fig.col == 'b')
+                            if (chessBoard[i, j].fig.data == 2 && chessBoard[i, j].fig.col == 'b' && !moveTurn)
                             {
+                                defCol = chessBoard[i, j].color;
+                                g.FillRectangle(lightYellowBrush, chessBoard[i, j].rect);
+                                g.DrawRectangle(blackPen, chessBoard[i, j].rect);
+                                chessBoard[i, j].color = Color.LightYellow;
                                 g.DrawImage(Properties.Resources.knightB, chessBoard[i, j].rect.X + 8, chessBoard[i, j].rect.Y + 12);
                                 chessBoard[i, j].flag = true;
                                 isClicked = true;
                             }
-                            if (chessBoard[i, j].fig.data == 3 && chessBoard[i, j].fig.col == 'b')
+
+                            if (chessBoard[i, j].fig.data == 3 && chessBoard[i, j].fig.col == 'b' && !moveTurn)
                             {
+                                defCol = chessBoard[i, j].color;
+                                g.FillRectangle(lightYellowBrush, chessBoard[i, j].rect);
+                                g.DrawRectangle(blackPen, chessBoard[i, j].rect);
+                                chessBoard[i, j].color = Color.LightYellow;
                                 g.DrawImage(Properties.Resources.bishopB, chessBoard[i, j].rect.X + 8, chessBoard[i, j].rect.Y + 8);
                                 chessBoard[i, j].flag = true;
                                 isClicked = true;
                             }
-                            if (chessBoard[i, j].fig.data == 4 && chessBoard[i, j].fig.col == 'b')
+                            if (chessBoard[i, j].fig.data == 4 && chessBoard[i, j].fig.col == 'b' && !moveTurn)
                             {
+                                defCol = chessBoard[i, j].color;
+                                g.FillRectangle(lightYellowBrush, chessBoard[i, j].rect);
+                                g.DrawRectangle(blackPen, chessBoard[i, j].rect);
+                                chessBoard[i, j].color = Color.LightYellow;
                                 g.DrawImage(Properties.Resources.rookB, chessBoard[i, j].rect.X + 10, chessBoard[i, j].rect.Y + 12);
                                 chessBoard[i, j].flag = true;
                                 isClicked = true;
                             }
-                            if (chessBoard[i, j].fig.data == 5 && chessBoard[i, j].fig.col == 'b')
+                            if (chessBoard[i, j].fig.data == 5 && chessBoard[i, j].fig.col == 'b' && !moveTurn)
                             {
+                                defCol = chessBoard[i, j].color;
+                                g.FillRectangle(lightYellowBrush, chessBoard[i, j].rect);
+                                g.DrawRectangle(blackPen, chessBoard[i, j].rect);
+                                chessBoard[i, j].color = Color.LightYellow;
                                 g.DrawImage(Properties.Resources.queenB, chessBoard[i, j].rect.X + 5, chessBoard[i, j].rect.Y + 8);
                                 chessBoard[i, j].flag = true;
                                 isClicked = true;
                             }
-                            if (chessBoard[i, j].fig.data == 6 && chessBoard[i, j].fig.col == 'b')
+                            if (chessBoard[i, j].fig.data == 6 && chessBoard[i, j].fig.col == 'b' && !moveTurn)
                             {
+                                defCol = chessBoard[i, j].color;
+                                g.FillRectangle(lightYellowBrush, chessBoard[i, j].rect);
+                                g.DrawRectangle(blackPen, chessBoard[i, j].rect);
+                                chessBoard[i, j].color = Color.LightYellow;
                                 g.DrawImage(Properties.Resources.kingB, chessBoard[i, j].rect.X + 5, chessBoard[i, j].rect.Y + 4);
                                 chessBoard[i, j].flag = true;
                                 isClicked = true;
                             }
 
-                            if (chessBoard[i, j].fig.data == 1 && chessBoard[i, j].fig.col == 'w') // WHITE
+                            if (chessBoard[i, j].fig.data == 1 && chessBoard[i, j].fig.col == 'w' && moveTurn) // WHITE
                             {
+                                defCol = chessBoard[i, j].color;
+                                g.FillRectangle(lightYellowBrush, chessBoard[i, j].rect);
+                                g.DrawRectangle(blackPen, chessBoard[i, j].rect);
+                                chessBoard[i, j].color = Color.LightYellow;
                                 g.DrawImage(Properties.Resources.pawnW, chessBoard[i, j].rect.X + 15, chessBoard[i, j].rect.Y + 12);
                                 chessBoard[i, j].flag = true;
                                 isClicked = true;
                             }
-                            if (chessBoard[i, j].fig.data == 2 && chessBoard[i, j].fig.col == 'w')
+                            if (chessBoard[i, j].fig.data == 2 && chessBoard[i, j].fig.col == 'w' && moveTurn)
                             {
+                                defCol = chessBoard[i, j].color;
+                                g.FillRectangle(lightYellowBrush, chessBoard[i, j].rect);
+                                g.DrawRectangle(blackPen, chessBoard[i, j].rect);
+                                chessBoard[i, j].color = Color.LightYellow;
                                 g.DrawImage(Properties.Resources.knightW, chessBoard[i, j].rect.X + 8, chessBoard[i, j].rect.Y + 12);
                                 chessBoard[i, j].flag = true;
                                 isClicked = true;
                             }
-                            if (chessBoard[i, j].fig.data == 3 && chessBoard[i, j].fig.col == 'w')
+                            if (chessBoard[i, j].fig.data == 3 && chessBoard[i, j].fig.col == 'w' && moveTurn)
                             {
+                                defCol = chessBoard[i, j].color;
+                                g.FillRectangle(lightYellowBrush, chessBoard[i, j].rect);
+                                g.DrawRectangle(blackPen, chessBoard[i, j].rect);
+                                chessBoard[i, j].color = Color.LightYellow;
                                 g.DrawImage(Properties.Resources.bishopW, chessBoard[i, j].rect.X + 8, chessBoard[i, j].rect.Y + 8);
                                 chessBoard[i, j].flag = true;
                                 isClicked = true;
                             }
-                            if (chessBoard[i, j].fig.data == 4 && chessBoard[i, j].fig.col == 'w')
+                            if (chessBoard[i, j].fig.data == 4 && chessBoard[i, j].fig.col == 'w' && moveTurn)
                             {
+                                defCol = chessBoard[i, j].color;
+                                g.FillRectangle(lightYellowBrush, chessBoard[i, j].rect);
+                                g.DrawRectangle(blackPen, chessBoard[i, j].rect);
+                                chessBoard[i, j].color = Color.LightYellow;
                                 g.DrawImage(Properties.Resources.rookW, chessBoard[i, j].rect.X + 10, chessBoard[i, j].rect.Y + 12);
                                 chessBoard[i, j].flag = true;
                                 isClicked = true;
                             }
-                            if (chessBoard[i, j].fig.data == 5 && chessBoard[i, j].fig.col == 'w')
+                            if (chessBoard[i, j].fig.data == 5 && chessBoard[i, j].fig.col == 'w' && moveTurn)
                             {
+                                defCol = chessBoard[i, j].color;
+                                g.FillRectangle(lightYellowBrush, chessBoard[i, j].rect);
+                                g.DrawRectangle(blackPen, chessBoard[i, j].rect);
+                                chessBoard[i, j].color = Color.LightYellow;
                                 g.DrawImage(Properties.Resources.queenW, chessBoard[i, j].rect.X + 5, chessBoard[i, j].rect.Y + 8);
                                 chessBoard[i, j].flag = true;
                                 isClicked = true;
                             }
-                            if (chessBoard[i, j].fig.data == 6 && chessBoard[i, j].fig.col == 'w')
+                            if (chessBoard[i, j].fig.data == 6 && chessBoard[i, j].fig.col == 'w' && moveTurn)
                             {
+                                defCol = chessBoard[i, j].color;
+                                g.FillRectangle(lightYellowBrush, chessBoard[i, j].rect);
+                                g.DrawRectangle(blackPen, chessBoard[i, j].rect);
+                                chessBoard[i, j].color = Color.LightYellow;
                                 g.DrawImage(Properties.Resources.kingW, chessBoard[i, j].rect.X + 5, chessBoard[i, j].rect.Y + 4);
                                 chessBoard[i, j].flag = true;
                                 isClicked = true;
@@ -489,6 +537,7 @@ namespace ChessGame
                                                 isClicked = false;
                                                 chessBoard[k, m].isFugure = true;
                                                 chessBoard[k, m].fig.check_for_pawn = true;
+                                                moveTurn = true;
                                             }
                                             else
                                             {
@@ -520,6 +569,7 @@ namespace ChessGame
                                                 isClicked = false;
                                                 chessBoard[k, m].isFugure = true;
                                                 chessBoard[k, m].fig.check_for_pawn = true;
+                                                moveTurn = true;
                                             }
                                             else
                                             {
@@ -531,6 +581,7 @@ namespace ChessGame
 
                                         if (chessBoard[i, j].fig.data == 1 && chessBoard[i, j].fig.col == 'b' && Math.Abs(k - i) == 1  && m - j == 1 && chessBoard[k, m].isFugure)
                                         {
+                                            moveTurn = true;
                                             g.FillRectangle(col, chessBoard[k, m].rect);
                                             g.DrawRectangle(blackPen, chessBoard[k, m].rect);
                                             g.DrawImage(Properties.Resources.pawnB, chessBoard[k, m].rect.X + 15, chessBoard[k, m].rect.Y + 12);
@@ -569,6 +620,7 @@ namespace ChessGame
                                                     chessBoard[i, j].isFugure = false;
                                                     isClicked = false;
                                                     chessBoard[k, m].isFugure = true;
+                                                    moveTurn = true;
                                                 }
                                             }
                                             else
@@ -583,6 +635,7 @@ namespace ChessGame
                                                 chessBoard[i, j].isFugure = false;
                                                 isClicked = false;
                                                 chessBoard[k, m].isFugure = true;
+                                                moveTurn = true;
                                             }
                                         }
                                         if (chessBoard[i, j].fig.data == 3 && chessBoard[i, j].fig.col == 'b' && Math.Abs(k - i) == Math.Abs(m - j))
@@ -640,6 +693,7 @@ namespace ChessGame
                                                         chessBoard[i, j].isFugure = false;
                                                         isClicked = false;
                                                         chessBoard[k, m].isFugure = true;
+                                                        moveTurn = true;
                                                     }
                                                 }
                                                 else
@@ -654,6 +708,7 @@ namespace ChessGame
                                                     chessBoard[i, j].isFugure = false;
                                                     isClicked = false;
                                                     chessBoard[k, m].isFugure = true;
+                                                    moveTurn = true;
                                                 }
                                             }
                                             else
@@ -727,6 +782,7 @@ namespace ChessGame
                                                         chessBoard[i, j].isFugure = false;
                                                         isClicked = false;
                                                         chessBoard[k, m].isFugure = true;
+                                                        moveTurn = true;
                                                     }
                                                 }
                                                 else
@@ -741,6 +797,7 @@ namespace ChessGame
                                                     chessBoard[i, j].isFugure = false;
                                                     isClicked = false;
                                                     chessBoard[k, m].isFugure = true;
+                                                    moveTurn = true;
                                                 }
                                             }
                                             else
@@ -831,6 +888,11 @@ namespace ChessGame
                                                 {
                                                     if (chessBoard[k, m].fig.col == 'w')
                                                     {
+                                                        if (chessBoard[k, m].fig.data == 6)
+                                                        {
+                                                            this.Close();
+                                                            gmo.Show();
+                                                        }
                                                         chessBoard[k, m].fig.resetAll();
                                                         chessBoard[k, m].fig = new Figure(5, i, j, 'b');
                                                         g.FillRectangle(col2, chessBoard[k, m].rect);
@@ -844,6 +906,7 @@ namespace ChessGame
                                                         chessBoard[i, j].isFugure = false;
                                                         isClicked = false;
                                                         chessBoard[k, m].isFugure = true;
+                                                        moveTurn = true;
                                                     }
                                                 }
                                                 else
@@ -858,6 +921,7 @@ namespace ChessGame
                                                     chessBoard[i, j].isFugure = false;
                                                     isClicked = false;
                                                     chessBoard[k, m].isFugure = true;
+                                                    moveTurn = true;
                                                 }
                                             }
                                             else
@@ -886,6 +950,7 @@ namespace ChessGame
                                                     chessBoard[i, j].isFugure = false;
                                                     isClicked = false;
                                                     chessBoard[k, m].isFugure = true;
+                                                    moveTurn = true;
                                                 }
                                             }
                                             else
@@ -900,6 +965,7 @@ namespace ChessGame
                                                 chessBoard[i, j].isFugure = false;
                                                 isClicked = false;
                                                 chessBoard[k, m].isFugure = true;
+                                                moveTurn = true;
                                             }
                                         }
 
@@ -926,6 +992,7 @@ namespace ChessGame
                                                 isClicked = false;
                                                 chessBoard[k, m].isFugure = true;
                                                 chessBoard[k, m].fig.check_for_pawn = true;
+                                                moveTurn = false;
                                             }
                                             else
                                             {
@@ -957,6 +1024,7 @@ namespace ChessGame
                                                 isClicked = false;
                                                 chessBoard[k, m].isFugure = true;
                                                 chessBoard[k, m].fig.check_for_pawn = true;
+                                                moveTurn = false;
                                             }
                                             else
                                             {
@@ -981,6 +1049,7 @@ namespace ChessGame
                                             chessBoard[k, m].fig.check_for_pawn = true;
                                             g.FillRectangle(col, chessBoard[i, j].rect);
                                             g.DrawRectangle(blackPen, chessBoard[i, j].rect);
+                                            moveTurn = false;
                                         }
 
                                         if (chessBoard[i, j].fig.data == 2 && chessBoard[i, j].fig.col == 'w' &&
@@ -1004,6 +1073,7 @@ namespace ChessGame
                                                     chessBoard[i, j].isFugure = false;
                                                     isClicked = false;
                                                     chessBoard[k, m].isFugure = true;
+                                                    moveTurn = false;
                                                 }
                                             }
                                             else
@@ -1018,6 +1088,7 @@ namespace ChessGame
                                                 chessBoard[i, j].isFugure = false;
                                                 isClicked = false;
                                                 chessBoard[k, m].isFugure = true;
+                                                moveTurn = false;
                                             }
                                         }
                                         if (chessBoard[i, j].fig.data == 3 && chessBoard[i, j].fig.col == 'w' && Math.Abs(k - i) == Math.Abs(m - j))
@@ -1069,6 +1140,7 @@ namespace ChessGame
                                                 chessBoard[i, j].isFugure = false;
                                                 isClicked = false;
                                                 chessBoard[k, m].isFugure = true;
+                                                moveTurn = false;
                                             }
                                             else
                                             {
@@ -1139,6 +1211,7 @@ namespace ChessGame
                                                         chessBoard[i, j].isFugure = false;
                                                         isClicked = false;
                                                         chessBoard[k, m].isFugure = true;
+                                                        moveTurn = false;
                                                     }
                                                 }
                                                 else
@@ -1153,6 +1226,7 @@ namespace ChessGame
                                                     chessBoard[i, j].isFugure = false;
                                                     isClicked = false;
                                                     chessBoard[k, m].isFugure = true;
+                                                    moveTurn = false;
                                                 }
                                             }
                                             else
@@ -1256,6 +1330,7 @@ namespace ChessGame
                                                         chessBoard[i, j].isFugure = false;
                                                         isClicked = false;
                                                         chessBoard[k, m].isFugure = true;
+                                                        moveTurn = false;
                                                     }
                                                 }
                                                 else
@@ -1270,6 +1345,7 @@ namespace ChessGame
                                                     chessBoard[i, j].isFugure = false;
                                                     isClicked = false;
                                                     chessBoard[k, m].isFugure = true;
+                                                    moveTurn = false;
                                                 }
                                             }
                                             else
@@ -1298,6 +1374,7 @@ namespace ChessGame
                                                     chessBoard[i, j].isFugure = false;
                                                     isClicked = false;
                                                     chessBoard[k, m].isFugure = true;
+                                                    moveTurn = false;
                                                 }
                                             }
                                             else
@@ -1312,6 +1389,7 @@ namespace ChessGame
                                                 chessBoard[i, j].isFugure = false;
                                                 isClicked = false;
                                                 chessBoard[k, m].isFugure = true;
+                                                moveTurn = false;
                                             }
                                         }
                                         break;
@@ -1324,9 +1402,10 @@ namespace ChessGame
             }
         }
 
-        private void GameTogether_FormClosed(object sender, FormClosedEventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            Application.OpenForms[0].Show();
+            st.Show();
+            this.Close();
         }
     }
 }

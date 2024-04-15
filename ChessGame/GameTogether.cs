@@ -581,6 +581,11 @@ namespace ChessGame
 
                                         if (chessBoard[i, j].fig.data == 1 && chessBoard[i, j].fig.col == 'b' && Math.Abs(k - i) == 1  && m - j == 1 && chessBoard[k, m].isFugure)
                                         {
+                                            if (chessBoard[k, m].fig.data == 6)
+                                            {
+                                                this.Close();
+                                                gmo.Show();
+                                            }
                                             moveTurn = true;
                                             g.FillRectangle(col, chessBoard[k, m].rect);
                                             g.DrawRectangle(blackPen, chessBoard[k, m].rect);
@@ -607,6 +612,11 @@ namespace ChessGame
                                             {
                                                 if (chessBoard[k, m].fig.col == 'w')
                                                 {
+                                                    if (chessBoard[k, m].fig.data == 6)
+                                                    {
+                                                        this.Close();
+                                                        gmo.Show();
+                                                    }
                                                     chessBoard[k, m].fig.resetAll();
                                                     chessBoard[k, m].fig = new Figure(2, i, j, 'b');
                                                     g.FillRectangle(col2, chessBoard[k, m].rect);
@@ -679,6 +689,11 @@ namespace ChessGame
                                                 {
                                                     if (chessBoard[k, m].fig.col == 'w')
                                                     {
+                                                        if (chessBoard[k, m].fig.data == 6)
+                                                        {
+                                                            this.Close();
+                                                            gmo.Show();
+                                                        }
                                                         chessBoard[k, m].fig.resetAll();
                                                         chessBoard[k, m].fig = new Figure(3, i, j, 'b');
                                                         g.FillRectangle(col2, chessBoard[k, m].rect);
@@ -768,6 +783,11 @@ namespace ChessGame
                                                 {
                                                     if (chessBoard[k, m].fig.col == 'w')
                                                     {
+                                                        if (chessBoard[k, m].fig.data == 6)
+                                                        {
+                                                            this.Close();
+                                                            gmo.Show();
+                                                        }
                                                         chessBoard[k, m].fig.resetAll();
                                                         chessBoard[k, m].fig = new Figure(4, i, j, 'b');
                                                         g.FillRectangle(col2, chessBoard[k, m].rect);
@@ -937,6 +957,11 @@ namespace ChessGame
                                             {
                                                 if (chessBoard[k, m].fig.col == 'w')
                                                 {
+                                                    if (chessBoard[k, m].fig.data == 6)
+                                                    {
+                                                        this.Close();
+                                                        gmo.Show();
+                                                    }
                                                     chessBoard[k, m].fig.resetAll();
                                                     chessBoard[k, m].fig = new Figure(6, i, j, 'b');
                                                     g.FillRectangle(col2, chessBoard[k, m].rect);
@@ -1036,6 +1061,11 @@ namespace ChessGame
 
                                         if (chessBoard[i, j].fig.data == 1 && chessBoard[i, j].fig.col == 'w' && Math.Abs(k - i) == 1 && m - j == -1 && chessBoard[k, m].isFugure)
                                         {
+                                            if (chessBoard[k, m].fig.data == 6)
+                                            {
+                                                this.Close();
+                                                gmo.Show();
+                                            }
                                             g.FillRectangle(col, chessBoard[k, m].rect);
                                             g.DrawRectangle(blackPen, chessBoard[k, m].rect);
                                             g.DrawImage(Properties.Resources.pawnW, chessBoard[k, m].rect.X + 15, chessBoard[k, m].rect.Y + 12);
@@ -1060,6 +1090,11 @@ namespace ChessGame
                                             {
                                                 if (chessBoard[k, m].fig.col == 'b')
                                                 {
+                                                    if (chessBoard[k, m].fig.data == 6)
+                                                    {
+                                                        this.Close();
+                                                        gmo.Show();
+                                                    }
                                                     chessBoard[k, m].fig.resetAll();
                                                     chessBoard[k, m].fig = new Figure(2, i, j, 'w');
                                                     g.FillRectangle(col2, chessBoard[k, m].rect);
@@ -1128,6 +1163,11 @@ namespace ChessGame
                                             }
                                             if (f)
                                             {
+                                                if (chessBoard[k, m].fig.data == 6)
+                                                {
+                                                    this.Close();
+                                                    gmo.Show();
+                                                }
                                                 g.FillRectangle(col2, chessBoard[k, m].rect);
                                                 g.DrawRectangle(blackPen, chessBoard[k, m].rect);
                                                 g.DrawImage(Properties.Resources.bishopW, chessBoard[k, m].rect.X + 8, chessBoard[k, m].rect.Y + 8);
@@ -1198,6 +1238,11 @@ namespace ChessGame
                                                 {
                                                     if (chessBoard[k, m].fig.col == 'b')
                                                     {
+                                                        if (chessBoard[k, m].fig.data == 6)
+                                                        {
+                                                            this.Close();
+                                                            gmo.Show();
+                                                        }
                                                         chessBoard[k, m].fig.resetAll();
                                                         chessBoard[k, m].fig = new Figure(4, i, j, 'w');
                                                         g.FillRectangle(col2, chessBoard[k, m].rect);
@@ -1317,6 +1362,11 @@ namespace ChessGame
                                                 {
                                                     if (chessBoard[k, m].fig.col == 'b')
                                                     {
+                                                        if (chessBoard[k, m].fig.data == 6)
+                                                        {
+                                                            this.Close();
+                                                            gmo.Show();
+                                                        }
                                                         chessBoard[k, m].fig.resetAll();
                                                         chessBoard[k, m].fig = new Figure(5, i, j, 'w');
                                                         g.FillRectangle(col2, chessBoard[k, m].rect);
@@ -1361,6 +1411,11 @@ namespace ChessGame
                                             {
                                                 if (chessBoard[k, m].fig.col == 'b')
                                                 {
+                                                    if (chessBoard[k, m].fig.data == 6)
+                                                    {
+                                                        this.Close();
+                                                        gmo.Show();
+                                                    }
                                                     chessBoard[k, m].fig.resetAll();
                                                     chessBoard[k, m].fig = new Figure(6, i, j, 'w');
                                                     g.FillRectangle(col2, chessBoard[k, m].rect);

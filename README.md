@@ -1,2 +1,2 @@
 chess game.
-made for practoce btw
+made for practice btw
